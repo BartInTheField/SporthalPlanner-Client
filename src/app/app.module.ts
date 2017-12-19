@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { BookingService } from '../services/booking.service';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BarComponent } from './components/bar/bar.component';
@@ -30,7 +31,7 @@ import { TimeComponent } from './components/time/time.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [NavbarService],
+  providers: [NavbarService, BookingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
