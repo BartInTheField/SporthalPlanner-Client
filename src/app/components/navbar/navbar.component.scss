@@ -1,0 +1,75 @@
+@import '../../../styles/colors';
+@import '../../../styles/misc';
+@import '../../../styles/sizes';
+
+.sidenav {
+  height: 100vh;
+  max-height: 100vh;
+  width: $navWidth;
+  top: 0;
+  left: 0rem;
+  position: fixed;
+  background-color: $primaryDark;
+  text-align: center;
+  padding-top: 1rem;
+  box-shadow: 0 4px 2px 2px $shadowColor;
+  user-select: none;
+  transition: left $animationTime;
+}
+
+b {
+  color: $navIcon;
+  font-size: $navIconSize;
+  display: block;
+}
+
+.round{
+  cursor: pointer;
+  height: $navRoundSize;
+  width: $navRoundSize;
+  line-height: $navRoundSize;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 50%;
+  background: $accent;
+  transition: border-radius $animationTime, background $animationTime, box-shadow $animationTime;
+  margin-bottom: 1rem;
+  background-size: cover;
+}
+
+.round:hover {
+  border-radius: 30%;
+  background: $round;
+  background-size: cover;
+  box-shadow: 0 0 0 0.1rem $outline;
+}
+
+div.active{
+  border-radius: 30%;
+  background: $round;
+  box-shadow: 0 0 0 0.1rem $outline;
+  background-size: cover;
+}
+
+span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+*:focus {
+  outline: none;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .hidden {
+    left: -5rem;
+    box-shadow: none;
+  }
+}
