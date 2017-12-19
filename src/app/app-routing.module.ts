@@ -5,9 +5,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { TimeComponent } from './components/time/time.component';
+import { LoginComponent } from './components/login/login.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent},
+  { path: 'login', component: LoginComponent},
   { path: 'plan', component: PlanComponent},
   { path: 'calendar', component: CalendarComponent},
   { path: 'work', component: WorkComponent},
