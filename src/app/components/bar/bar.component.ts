@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavbarService } from '../../services/navbar.service';
 
 @Component({
   selector: 'app-bar',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BarComponent implements OnInit {
 
-  constructor() { }
+  public showMenu = true;
+
+  constructor(private navbarService: NavbarService) { }
 
   ngOnInit() {
+    this.navbarService.navbarIsOut.subscribe(next => {
+      this.showMenu = !next;
+    });
+  }
+
+  toggleNav() {
+    this.navbarService.toggleNavbar();
   }
 
 }

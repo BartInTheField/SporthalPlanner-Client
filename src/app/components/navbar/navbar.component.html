@@ -1,4 +1,9 @@
-<div class="sidenav">
+<div [ngClass]="{'hidden': !show}" class="sidenav">
+  <div class="round">
+    <span>
+      <b class="fa fa-home"></b>
+    </span>
+  </div>
   <div class="round">
     <span>
       <b class="fa fa-thumb-tack"></b>

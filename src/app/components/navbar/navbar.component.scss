@@ -69,7 +69,7 @@ span {
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
   .hidden {
-    left: -5rem;
+    left: -$navWidth;
     box-shadow: none;
   }
 }
