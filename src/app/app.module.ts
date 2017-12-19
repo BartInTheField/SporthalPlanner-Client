@@ -14,6 +14,8 @@ import { PlanComponent } from './components/plan/plan.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { WorkComponent } from './components/work/work.component';
 import { TimeComponent } from './components/time/time.component';
+import { LoginComponent } from './components/login/login.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -24,12 +26,15 @@ import { TimeComponent } from './components/time/time.component';
     PlanComponent,
     CalendarComponent,
     WorkComponent,
-    TimeComponent
+    TimeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [NavbarService, BookingService],
   bootstrap: [AppComponent]
