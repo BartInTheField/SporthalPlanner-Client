@@ -1,6 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <app-navbar></app-navbar>
 <app-bar></app-bar>
-<div class="main">
+<div [ngClass]="{'full' : !navBarIsShowing}" class="main">
   <router-outlet></router-outlet>
 </div>

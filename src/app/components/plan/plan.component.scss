@@ -1,0 +1,14 @@
+@import '../../../styles/colors';
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(15rem, auto);
+}
+
+.note {
+  background-color: $noteColor;
+  height: 100%;
+  width: 100%;
+}
