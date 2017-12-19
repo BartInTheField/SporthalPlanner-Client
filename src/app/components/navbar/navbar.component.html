@@ -1,0 +1,28 @@
+<div [ngClass]="{'hidden': !show}" class="sidenav">
+  <div routerLink="/home" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" class="round">
+    <span>
+      <b class="fa fa-home"></b>
+    </span>
+  </div>
+  <div routerLink="/plan" routerLinkActive="active" class="round">
+    <span>
+      <b class="fa fa-thumb-tack"></b>
+    </span>
+  </div>
+  <div routerLink="/calendar" routerLinkActive="active" class="round">
+    <span>
+      <b class="fa fa-calendar"></b>
+    </span>
+  </div>
+  <div routerLink="/work" routerLinkActive="active" class="round">
+      <span>
+        <b class="fa fa-briefcase"></b>
+      </span>
+  </div>
+  <div routerLink="/time" routerLinkActive="active" class="round">
+      <span>
+        <b class="fa fa-clock-o"></b>
+      </span>
+  </div>
+</div>
+

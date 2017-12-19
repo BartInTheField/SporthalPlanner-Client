@@ -1,0 +1,45 @@
+@import '../../../styles/colors';
+@import '../../../styles/misc';
+@import '../../../styles/sizes';
+
+.bar {
+  z-index: 1;
+ top: 0;
+ left: $navWidth;
+ position: fixed;
+ background-color: $primaryDark;
+ height: $barHeight;
+ line-height: $barHeight - 1rem;
+ width: 100%;
+ box-shadow: 0 4px 2px -2px $shadowColor;
+ transition: left $animationTime;
+}
+
+
+b {
+  color: $navIcon;
+}
+
+
+.menubtn {
+  top: 0.5rem;
+  left: 1rem;
+  position: fixed;
+  transition: left $animationTime;
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .full {
+    left: 0;
+  }
+
+  .closeBtn {
+    left: $navWidth + 1rem;
+  }
+
+  .menubtn {
+    display: block;
+  }
+}

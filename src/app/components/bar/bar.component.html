@@ -1,0 +1,6 @@
+<div [ngClass]="{'full': showMenu}" class="bar full">
+    <div [ngClass]="{'closeBtn': !showMenu}" class="menubtn" (click)="toggleNav()">
+        <b *ngIf="showMenu"   class="fa fa-bars"></b>
+        <b *ngIf="!showMenu"   class="fa fa-times"></b>
+    </div>
+</div>
