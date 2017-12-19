@@ -31,7 +31,7 @@ import { TimeComponent } from './components/time/time.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [NavbarService],
+  providers: [NavbarService, BookingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
