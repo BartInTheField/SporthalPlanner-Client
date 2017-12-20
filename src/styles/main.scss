@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'colors';
+@import 'misc';
 
 body {
   background-color: $background;
@@ -9,14 +10,26 @@ body {
 .plangrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
+  grid-gap: 1rem;
   grid-auto-rows: minmax(15rem, auto);
   padding: 1rem;
 }
 
 .note {
-  height: 100%;
   width: 100%;
+  border-radius: 2%;
+  box-shadow: 3px 3px 2px -2px $shadowColor;
+  transition: box-shadow $animationTime, border $animationTime;
+  cursor: pointer;
+}
+
+.note:hover {
+  box-shadow: 3.5px 3.5px 2px -2px $noteHoverShadow;
+}
+
+.note-container{
+  padding: 1rem;
+  color: $noteText;
 }
 
 @media only screen and (max-width: 768px) {
