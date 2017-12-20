@@ -3,55 +3,63 @@ import { User } from './user.model';
 
 export class Booking {
 
-    constructor(private id: number, private day: Date, private startingTime: string, private endingTime: string,
-                private sportsHallField: SportsHallField, private status: number, private user: User) {}
+  constructor(private _id: number, private _day: Date, private _startingTime: string, private _endingTime: string,
+              private _sportsHallField: SportsHallField, private _status: number, private _user: User) {
+  }
 
-    public get Id(): number {
-        return this.id;
-    }
-    public set Id(v: number) {
-        this.id = v;
-    }
+  get id(): number {
+    return this._id;
+  }
 
-    public get Day(): Date {
-        return this.day;
-    }
-    public set Day(v: Date) {
-        this.day = v;
-    }
+  set id(value: number) {
+    this._id = value;
+  }
 
-    public get StartingTime(): string {
-        return this.startingTime;
-    }
-    public set StartingTime(v: string) {
-        this.startingTime = v;
-    }
+  get day(): Date {
+    return this._day;
+  }
 
-    public get EndingTime(): string {
-        return this.endingTime;
-    }
-    public set EndingTime(v: string) {
-        this.endingTime = v;
-    }
+  set day(value: Date) {
+    this._day = value;
+  }
 
-    public get SportsHallField(): SportsHallField {
-        return this.sportsHallField;
-    }
-    public set SportsHallField(v: SportsHallField) {
-        this.sportsHallField = v;
-    }
+  get startingTime(): string {
+    return this._startingTime;
+  }
 
-    public get Status(): number {
-        return this.status;
-    }
-    public set Status(v: number) {
-        this.status = v;
-    }
+  set startingTime(value: string) {
+    this._startingTime = value;
+  }
 
-    public get User(): User {
-        return this.user;
-    }
-    public set User(v: User) {
-        this.user = v;
-    }
+  get endingTime(): string {
+    return this._endingTime;
+  }
+
+  set endingTime(value: string) {
+    this._endingTime = value;
+  }
+
+  get sportsHallField(): SportsHallField {
+    return this._sportsHallField;
+  }
+
+  set sportsHallField(value: SportsHallField) {
+    this._sportsHallField = value;
+  }
+
+  get status(): number {
+    return this._status;
+  }
+
+  set status(value: number) {
+    this._status = value;
+  }
+
+  get user(): User {
+    return this._user;
+  }
+
+  set user(value: User) {
+    this._user = value;
+  }
 }
