@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {User} from "../../../models/user.model";
+import {User} from "../../models/user.model";
 
 @Component({
   selector: 'app-login',
