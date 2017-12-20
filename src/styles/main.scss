@@ -4,3 +4,25 @@
 body {
   background-color: $background;
 }
+
+
+.plangrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(15rem, auto);
+  padding: 1rem;
+}
+
+.note {
+  height: 100%;
+  width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .plangrid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+

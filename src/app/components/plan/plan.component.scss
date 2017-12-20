@@ -1,14 +1,46 @@
 @import '../../../styles/colors';
+@import '../../../styles/sizes';
+@import '../../../styles/misc';
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-  grid-auto-rows: minmax(15rem, auto);
+.nav-link {
+  transition: background-color $animationTime;
 }
 
-.note {
-  background-color: $noteColor;
-  height: 100%;
-  width: 100%;
+.nav-link {
+  color: white;
+  background-color: $accent;
+  border-radius: 0;
+}
+
+.nav-link:hover {
+  background-color: $round;
+}
+
+.nav-link.active {
+  background-color: $round;
+}
+
+//Bar
+.bar {
+  z-index: 1;
+ top: $barHeight + 0.2rem;
+ left: $navWidth + 1rem;
+ position: fixed;
+ height: $barHeight;
+ background-color: $background;
+ line-height: $barHeight + 0.5rem;
+ width: 100%;
+ transition: left $animationTime;
+}
+
+
+b {
+  color: $navIcon;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .full {
+    left: 0;
+  }
 }
