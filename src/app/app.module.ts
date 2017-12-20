@@ -16,6 +16,7 @@ import { WorkComponent } from './components/work/work.component';
 import { TimeComponent } from './components/time/time.component';
 import { LoginComponent } from './components/login/login.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { OpeningHours } from './models/openingHours.model';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [NavbarService, BookingService],
+  providers: [NavbarService, BookingService, OpeningHours],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
