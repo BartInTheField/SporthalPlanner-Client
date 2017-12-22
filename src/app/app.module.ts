@@ -16,6 +16,7 @@ import { WorkComponent } from './components/work/work.component';
 import { TimeComponent } from './components/time/time.component';
 import { LoginComponent } from './components/login/login.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {AuthService} from "../services/auth.service";
 import { OpeningHoursService } from './services/openinghours.service';
 
 @NgModule({
@@ -37,7 +38,7 @@ import { OpeningHoursService } from './services/openinghours.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [NavbarService, BookingService, OpeningHoursService],
+  providers: [NavbarService, BookingService, OpeningHoursService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
