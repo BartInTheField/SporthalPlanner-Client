@@ -1,0 +1,108 @@
+<h3>Openingstijden</h3>
+
+<div class="row">
+  <div class="col-sm-6">
+    <table *ngIf="openingHours !== null; else noOpeningHours">
+
+      <tr>
+      <tr *ngIf="isOpen(openingHours.monday); else closedMonday">
+        <td class="day">Maandag</td>
+        <td>{{ parseOpeningHours(openingHours.monday, true) }}</td>
+        <td> - </td>
+        <td class="closing-hour">{{ parseOpeningHours(openingHours.monday, false) }}</td>
+        <ng-template #closedMonday>
+          <tr>
+            <td class="day">Monday</td>
+            <td colspan="3" style="text-align: right; width: 100%;" class="closing-hour">GESLOTEN</td>
+          </tr>
+        </ng-template>
+
+      <tr *ngIf="isOpen(openingHours.tuesday); else closedThursday">
+        <td class="day">Dinsdag</td>
+        <td>{{ parseOpeningHours(openingHours.tuesday, true) }}</td>
+        <td> - </td>
+        <td class="closing-hour">{{ parseOpeningHours(openingHours.tuesday, false) }}</td>
+        <ng-template #closedThursday>
+          <tr>
+            <td class="day">Dinsdag</td>
+            <td colspan="3" style="text-align: right; width: 100%;" class="closing-hour">GESLOTEN</td>
+          </tr>
+        </ng-template>
+
+      <tr *ngIf="isOpen(openingHours.wednesday); else closedWednesday">
+        <td class="day">Woensdag</td>
+        <td>{{ parseOpeningHours(openingHours.wednesday, true) }}</td>
+        <td> - </td>
+        <td class="closing-hour">{{ parseOpeningHours(openingHours.wednesday, false) }}</td>
+      </tr>
+      <ng-template #closedWednesday>
+        <tr>
+          <td class="day">Woensdag</td>
+          <td colspan="3" style="text-align: right;" class="closing-hour">GESLOTEN</td>
+        </tr>
+      </ng-template>
+
+      <tr *ngIf="isOpen(openingHours.thursday); else closedThursday">
+        <td class="day">Maandag</td>
+        <td>{{ parseOpeningHours(openingHours.thursday, true) }}</td>
+        <td> - </td>
+        <td class="closing-hour">{{ parseOpeningHours(openingHours.thursday, false) }}</td>
+      </tr>
+      <ng-template #closedThursday>
+        <tr>
+          <td class="day">Thursday</td>
+          <td colspan="3" style="text-align: right;" class="closing-hour">GESLOTEN</td>
+        </tr>
+      </ng-template>
+
+      <tr *ngIf="isOpen(openingHours.friday); else closedFriday">
+        <td class="day">Maandag</td>
+        <td>{{ parseOpeningHours(openingHours.friday, true) }}</td>
+        <td> - </td>
+        <td class="closing-hour">{{ parseOpeningHours(openingHours.friday, false) }}</td>
+      </tr>
+      <ng-template #closedFriday>
+        <tr>
+          <td class="day">Vrijdag</td>
+          <td colspan="3" style="text-align: right;" class="closing-hour">GESLOTEN</td>
+        </tr>
+      </ng-template>
+
+      <tr *ngIf="isOpen(openingHours.saturday); else closedSaturday">
+        <td class="day">Zaterdag</td>
+        <td>{{ parseOpeningHours(openingHours.saturday, true) }}</td>
+        <td> - </td>
+        <td class="closing-hour">{{ parseOpeningHours(openingHours.saturday, false) }}</td>
+      </tr>
+      <ng-template #closedSaturday>
+        <tr>
+          <td class="day">Zaterdag</td>
+          <td colspan="3" style="text-align: right;" class="closing-hour">GESLOTEN</td>
+        </tr>
+      </ng-template>
+
+      <tr *ngIf="isOpen(openingHours.sunday); else closedSunday">
+        <td class="day">Zondag</td>
+        <td>{{ parseOpeningHours(openingHours.sunday, true) }}</td>
+        <td> - </td>
+        <td >{{ parseOpeningHours(openingHours.sunday, false) }}</td>
+      </tr>
+      <ng-template #closedSunday>
+        <tr>
+          <td class="day">Zondag</td>
+          <td colspan="3" style="text-align: right;" class="closing-hour">GESLOTEN</td>
+        </tr>
+      </ng-template>
+
+    </table>
+
+    <ng-template #noOpeningHours>
+      <table>
+        <tr>
+          <td class="day">Kon geen openingstijden ophalen.</td>
+        </tr>
+      </table>
+    </ng-template>
+
+  </div>
+</div>
