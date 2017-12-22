@@ -18,6 +18,7 @@ import { LoginComponent } from './components/login/login.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AuthService} from "../services/auth.service";
 import { OpeningHoursService } from './services/openinghours.service';
+import { OpeninghoursComponent } from './components/time/openinghours/openinghours.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { OpeningHoursService } from './services/openinghours.service';
     CalendarComponent,
     WorkComponent,
     TimeComponent,
-    LoginComponent
+    LoginComponent,
+    OpeninghoursComponent
   ],
   imports: [
     BrowserModule,

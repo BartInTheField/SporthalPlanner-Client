@@ -1,62 +1,70 @@
 export class OpeningHours {
-    
-    constructor(private id: number, private monday: string, private tuesday: string, private wednesday: string,
-                private thursday: string, private friday: string, private saturday: string, private sunday: string) {}
 
-    public get Id() : number {
-        return this.id;
-    }
-    public set Id(v : number) {
-        this.id = v;
-    }       
-    
-    public get Monday() : string {
-        return this.monday;
-    }
-    public set Monday(v : string) {
-        this.monday = v;
-    }
-    
-    public get Tuesday() : string {
-        return this.tuesday;
-    }
-    public set Tuesday(v : string) {
-        this.tuesday = v;
-    }
-    
-    public get Wednesday() : string {
-        return this.wednesday;
-    }
-    public set Wednesday(v : string) {
-        this.wednesday = v;
-    }
-    
-    public get Thursday() : string {
-        return this.thursday;
-    }
-    public set Thursday(v : string) {
-        this.thursday = v;
-    }
-    
-    public get Friday() : string {
-        return this.friday;
-    }
-    public set Friday(v : string) {
-        this.friday = v;
-    }
-    
-    public get Saturday() : string {
-        return this.saturday;
-    }
-    public set Saturday(v : string) {
-        this.saturday = v;
-    }
-    
-    public get Sunday() : string {
-        return this.sunday;
-    }
-    public set Sunday(v : string) {
-        this.sunday = v;
-    }
-    
+    constructor(private _id: number, private _monday: string, private _tuesday: string, private _wednesday: string,
+                private _thursday: string, private _friday: string, private _saturday: string, private _sunday: string) {}
+
+
+  get id(): number {
+    return this._id;
+  }
+
+  set id(value: number) {
+    this._id = value;
+  }
+
+  get monday(): string {
+    return this._monday;
+  }
+
+  set monday(value: string) {
+    this._monday = value;
+  }
+
+  get tuesday(): string {
+    return this._tuesday;
+  }
+
+  set tuesday(value: string) {
+    this._tuesday = value;
+  }
+
+  get wednesday(): string {
+    return this._wednesday;
+  }
+
+  set wednesday(value: string) {
+    this._wednesday = value;
+  }
+
+  get thursday(): string {
+    return this._thursday;
+  }
+
+  set thursday(value: string) {
+    this._thursday = value;
+  }
+
+  get friday(): string {
+    return this._friday;
+  }
+
+  set friday(value: string) {
+    this._friday = value;
+  }
+
+  get saturday(): string {
+    return this._saturday;
+  }
+
+  set saturday(value: string) {
+    this._saturday = value;
+  }
+
+  get sunday(): string {
+    return this._sunday;
+  }
+
+  set sunday(value: string) {
+    this._sunday = value;
+  }
 }
