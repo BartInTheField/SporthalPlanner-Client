@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { BookingService } from '../services/booking.service';
+import { BookingService } from './services/booking.service';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BarComponent } from './components/bar/bar.component';
@@ -17,6 +17,7 @@ import { TimeComponent } from './components/time/time.component';
 import { LoginComponent } from './components/login/login.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AuthService} from "../services/auth.service";
+import { OpeningHoursService } from './services/openinghours.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import {AuthService} from "../services/auth.service";
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [NavbarService, BookingService, AuthService],
+  providers: [NavbarService, BookingService, OpeningHoursService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
