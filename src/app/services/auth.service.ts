@@ -1,7 +1,7 @@
 import {Http} from "@angular/http";
 import {User} from "../models/user.model";
 import {toPromise} from "rxjs/operator/toPromise";
-import {environment} from "../environments/environment";
+import {environment} from "../../environments/environment";
 import {Injectable} from "@angular/core";
 
 @Injectable()
