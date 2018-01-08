@@ -10,7 +10,8 @@ import { LoginComponent } from './components/login/login.component';
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'plan', component: PlanComponent},
-  { path: 'calendar', component: CalendarComponent},
+  { path: 'day', component: CalendarComponent},
+  { path: 'week', component: CalendarComponent},
   { path: 'work', component: WorkComponent},
   { path: 'time', component: TimeComponent},
   { path: 'login', component: LoginComponent},
