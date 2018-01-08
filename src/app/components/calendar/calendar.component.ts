@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalendarComponent implements OnInit {
 
-  constructor() { }
+  public hoursInADay: number[] = [];
+
+  constructor() {
+    this.fillHours();
+  }
 
   ngOnInit() {
+  }
+
+  private fillHours(): void {
+    var i: number;
+    for(i = 0; i < 24; i++ ) {
+      this.hoursInADay.push(i);
+    }
   }
 
 }
