@@ -1,6 +1,18 @@
 @import '../styles/sizes';
+@import '../styles/misc';
 
-.main {
-  margin-left: $navWidth;
-  margin-top: $barHeight;
+ .main {
+   margin-left: $navWidth;
+   margin-top: $barHeight;
+  transition: margin-left $animationTime;
+ }
+
+
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .full {
+    margin-left: 0;
+  }
 }
+
