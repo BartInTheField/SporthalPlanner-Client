@@ -1,0 +1,87 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(7, 14.2%);
+  grid-auto-rows: minmax(0px, auto);
+}
+
+.one {
+  grid-column: 1;
+  grid-row: 1;
+}
+.two {
+  grid-column: 2;
+  grid-row: 1;
+}
+.three {
+  grid-column: 3;
+  grid-row: 1;
+}
+.four {
+  grid-column: 4;
+  grid-row: 1;
+}
+.five {
+  grid-column: 5;
+  grid-row: 1;
+}
+.six {
+  grid-column: 6;
+  grid-row: 1;
+}
+.seven {
+  grid-column: 7;
+  grid-row: 1;
+}
+
+.wrapper-header {
+  display: grid;
+  grid-template-columns: repeat(7, 14.2%);
+  grid-auto-rows: minmax(0px, auto);
+}
+
+.header{
+  padding-left: 1rem;
+  font-weight: bold;
+}
+
+.one-header {
+  grid-column: 1;
+  grid-row: 1;
+  @extend .header
+}
+.two-header {
+  grid-column: 2;
+  grid-row: 1;
+  @extend .header
+}
+.three-header {
+  grid-column: 3;
+  grid-row: 1;
+  @extend .header
+}
+.four-header {
+  grid-column: 4;
+  grid-row: 1;
+  @extend .header
+}
+.five-header {
+  grid-column: 5;
+  grid-row: 1;
+  @extend .header
+}
+.six-header {
+  grid-column: 6;
+  grid-row: 1;
+  @extend .header
+}
+.seven-header {
+  grid-column: 7;
+  grid-row: 1;
+  @extend .header
+}
+
+.week{
+  font-size: 2rem;
+  font-weight: bold;
+  padding-left: 1rem;
+}

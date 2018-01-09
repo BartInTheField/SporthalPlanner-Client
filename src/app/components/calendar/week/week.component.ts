@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-week',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeekComponent implements OnInit {
 
-  constructor() { }
+  public week: number;
+  public date: Date;
+
+  constructor() {
+    this.date = new Date();
+    this.week = moment().week();
+   }
 
   ngOnInit() {
   }
