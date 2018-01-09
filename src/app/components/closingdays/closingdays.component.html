@@ -1,0 +1,18 @@
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let closingdays of sportsFacility.ClosingDays">
+    {{closingdays.name}} | {{closingdays.date}}
+  </li>
+</ul>
+
+<form [formGroup]="closingdaysForm">
+  <button class="btn-primary">Add day closed</button>
+
+  <div class="form-group">
+    <label for="reason">Reason</label>
+    <input type="text" id="reason" formControlName="reason" class="form-control">
+  </div>
+
+  <div>
+    <input type="date" id="date" formControlName="date" class="form-control">
+  </div>
+</form>
