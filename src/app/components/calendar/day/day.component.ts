@@ -11,6 +11,7 @@ export class DayComponent implements OnInit {
   public date: Date;
   public dateString: string;
   public highlightDatepicker: boolean = false;
+  private highlightTimer;
 
   constructor() {
     this.date = new Date();
@@ -34,13 +35,8 @@ export class DayComponent implements OnInit {
 
   highlightDayPicker() {
     this.highlightDatepicker = true;
-    const promise = new Promise(function(resolve,reject) {
-      setTimeout(() => resolve(), 500)
-    })
-
-    promise.then(() => {
-      this.removeHighlightDayPicker();
-    })
+    clearTimeout(this.highlightTimer);
+    this.highlightTimer = setTimeout(() =>  this.removeHighlightDayPicker(), 500);
   }
 
   removeHighlightDayPicker() {
