@@ -19,6 +19,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AuthService} from "./services/auth.service";
 import { OpeningHoursService } from './services/openinghours.service';
 import { OpeninghoursComponent } from './components/time/openinghours/openinghours.component';
+import { DayComponent } from './components/calendar/day/day.component';
+import { WeekComponent } from './components/calendar/week/week.component';
+import { DayOverviewComponent } from './components/calendar/day/day-overview/day-overview.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { OpeninghoursComponent } from './components/time/openinghours/openinghou
     WorkComponent,
     TimeComponent,
     LoginComponent,
-    OpeninghoursComponent
+    OpeninghoursComponent,
+    DayComponent,
+    WeekComponent,
+    DayOverviewComponent
   ],
   imports: [
     BrowserModule,

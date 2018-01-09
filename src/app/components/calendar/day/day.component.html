@@ -1,0 +1,23 @@
+<div (swipeleft)="onDayChange(1)">
+  <div (swiperight)="onDayChange(-1)" >
+    <div class="nav">
+      <div class="container">
+        <div class="row">
+          <div class="col center arrow" (click)="onDayChange(-1)">
+            <!-- Left arrow -->
+            <b class="fa fa-arrow-left"></b>
+          </div>
+          <div class="col-8 center">
+            <!-- DatePicker -->
+            <input [ngClass]="{ 'highlight' : highlightDatepicker }" class="datepicker" type="date" #date [(ngModel)]="dateString" (change)="changeDate(date.value)"/>
+          </div>
+          <div (click)="onDayChange(1)" class="col center arrow">
+            <!-- Right arrow -->
+            <b class="fa fa-arrow-right"></b>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-day-overview></app-day-overview>
+  </div>
+</div>

@@ -18,7 +18,6 @@ export class TimeComponent implements OnInit, OnDestroy {
     this.subscription = this.ohService.openingHoursChanged
       .subscribe(
         (openingHours: OpeningHours[]) => {
-          console.log(openingHours[0]);
           this.openingHours = openingHours[0]; // in the future this will return one openingHours object
         }
       );
