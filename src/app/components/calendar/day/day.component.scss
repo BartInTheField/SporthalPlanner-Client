@@ -1,24 +1,49 @@
-$marginCard: 1rem;
+@import '../../../../styles/colors';
 
-.hour{
- padding: 1rem;
- margin-left: 1rem;
+.nav {
+  background: $primary;
 }
 
-.bookings {
-  margin-left: $marginCard;
-  margin-right: $marginCard;
-  margin-bottom: $marginCard;
+.col {
+  padding: 0.5rem;
 }
 
-.bookingCard {
+.center {
+  text-align: center;
+  color: $primary-text;
+  font-weight: bold;
+}
+
+.arrow {
+  font-size: 1.0rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   cursor: pointer;
-  margin-top: $marginCard;
-  transition: background 0.2s;
+  transition: font-size 0.2s;
 }
 
-.bookingCard:hover {
-  background: #EEEEEE;
+.arrow:hover {
+  font-size: 1.75rem;
 }
+
+.datepicker {
+  text-align: center;
+  margin-top: 1.0rem;
+  border: 0;
+  background-color: $primary-text;
+  border-radius: 0.2rem;
+  transition: padding 0.2s, background 0.2s;
+}
+
+.datepicker:focus{
+  background: $highlight-date;
+  outline: none;
+}
+
+.highlight {
+  @extend .datepicker:focus
+}
+
+
 
 

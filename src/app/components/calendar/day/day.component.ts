@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
   selector: 'app-day',
@@ -6,30 +7,67 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./day.component.scss']
 })
 export class DayComponent implements OnInit {
-  
-  public hoursInADay: number[] = [];
-  public bookingsToDisplay = [];
 
-  private bookings = [{startingTime : '12:00', endingTime : '12:30', user : {UserName: 'bartaveld'}}, {startingTime : '16:00', endingTime : '17:30', user : {UserName: 'bartaveld'}}]
+  public date: Date;
+  public dateString: string;
+  public highlightDatepicker: boolean = false;
 
   constructor() {
-    this.fillHours();
+    this.date = new Date();
+    this.dateString = this.fillInDateString(this.date)
   }
+
 
   ngOnInit() {
   }
 
-  private fillHours(): void {
-    var i: number;
-    for(i = 6; i < 24; i++ ) {
-      this.hoursInADay.push(i);
-      this.bookingsToDisplay.push([])
+  changeDate(date: string) {
+    this.dateString = date;
+    this.date = new Date(date);
+  }
+
+  onDayChange(changeWith: number) {
+    this.date.setDate(this.date.getDate() + changeWith);
+    this.dateString = this.fillInDateString(this.date);
+    this.highlightDayPicker();
+  }
+
+  highlightDayPicker() {
+    this.highlightDatepicker = true;
+    const promise = new Promise(function(resolve,reject) {
+      setTimeout(() => resolve(), 500)
+    })
+
+    promise.then(() => {
+      this.removeHighlightDayPicker();
+    })
+  }
+
+  removeHighlightDayPicker() {
+    this.highlightDatepicker = false;
+  }
+
+  private fillInDateString(date: Date): string {
+    const year: number = date.getFullYear()
+    const day: number = date.getUTCDate();
+    const month: number = date.getMonth() + 1;
+
+    const yearString: string = year.toString();
+    let dayString: string;
+    let monthString: string;
+
+    if(day < 10) {
+      dayString = "0" + day;
+    } else {
+      dayString = day.toString();
     }
 
-    this.bookings.forEach(booking => {
-      const firstNumber = parseInt(booking.startingTime.substring(0, 2));
-      console.log(firstNumber);
-      this.bookingsToDisplay[firstNumber].push(booking);
-    });
+    if(month < 10) {
+      monthString = "0" + month;
+    } else {
+      monthString = month.toString();
+    }
+
+    return yearString+'-'+monthString+'-'+dayString
   }
 }

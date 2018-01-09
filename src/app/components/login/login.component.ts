@@ -32,11 +32,9 @@ export class LoginComponent implements OnInit {
     this.authService.signinOperator(this.userForm.value)
       .then(res => {
         if(res == true){
-          console.log('gelukt');
           this.router.navigate(['/home']);
 
         } else {
-          console.log('mislukt');
           this.message = 'Login failed, please try again';
         }
       })

@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       .subscribe(
         (bookings: Booking[]) => {
           this.bookings = bookings;
-          console.log(bookings);
         }
       );
     this.bookingService.getBookings();

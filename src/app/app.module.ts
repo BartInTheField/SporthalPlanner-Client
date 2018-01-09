@@ -21,6 +21,7 @@ import { OpeningHoursService } from './services/openinghours.service';
 import { OpeninghoursComponent } from './components/time/openinghours/openinghours.component';
 import { DayComponent } from './components/calendar/day/day.component';
 import { WeekComponent } from './components/calendar/week/week.component';
+import { DayOverviewComponent } from './components/calendar/day/day-overview/day-overview.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { WeekComponent } from './components/calendar/week/week.component';
     LoginComponent,
     OpeninghoursComponent,
     DayComponent,
-    WeekComponent
+    WeekComponent,
+    DayOverviewComponent
   ],
   imports: [
     BrowserModule,

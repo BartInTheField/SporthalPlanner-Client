@@ -1,20 +1,23 @@
-<div class="container">
-  <div class="card" *ngFor="let i of hoursInADay">
-    <div class="row">
-      <div class="col hour">
-        <b *ngIf="i > 0 && i < 10">0{{i}}:00</b>
-        <b *ngIf="i >= 10">{{i}}:00</b>
-      </div>
-      <div class="col-10 bookings">
-        <div *ngFor="let booking of bookingsToDisplay[i]" class="card bookingCard">
-          <div class="card-body">
-            <div class="card-title">
-              {{booking.user.UserName}}
-            </div>
-            {{booking.startingTime}} - {{booking.endingTime}}
+<div (swipeleft)="onDayChange(1)">
+  <div (swiperight)="onDayChange(-1)" >
+    <div class="nav">
+      <div class="container">
+        <div class="row">
+          <div class="col center arrow" (click)="onDayChange(-1)">
+            <!-- Left arrow -->
+            <b class="fa fa-arrow-left"></b>
+          </div>
+          <div class="col-8 center">
+            <!-- DatePicker -->
+            <input [ngClass]="{ 'highlight' : highlightDatepicker }" class="datepicker" type="date" #date [(ngModel)]="dateString" (change)="changeDate(date.value)"/>
+          </div>
+          <div (click)="onDayChange(1)" class="col center arrow">
+            <!-- Right arrow -->
+            <b class="fa fa-arrow-right"></b>
           </div>
         </div>
       </div>
     </div>
+    <app-day-overview></app-day-overview>
   </div>
 </div>
