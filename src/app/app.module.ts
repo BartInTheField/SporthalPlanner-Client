@@ -22,6 +22,7 @@ import { OpeninghoursComponent } from './components/time/openinghours/openinghou
 import { DayComponent } from './components/calendar/day/day.component';
 import { WeekComponent } from './components/calendar/week/week.component';
 import { DayOverviewComponent } from './components/calendar/day/day-overview/day-overview.component';
+import { DateService } from './services/date.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { DayOverviewComponent } from './components/calendar/day/day-overview/day
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [NavbarService, BookingService, OpeningHoursService, AuthService],
+  providers: [NavbarService, BookingService, OpeningHoursService, AuthService, DateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
