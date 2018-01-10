@@ -1,3 +1,4 @@
+import { DateService } from './../../../services/date.service';
 import { Component, OnInit } from '@angular/core';
 import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 
@@ -13,11 +14,10 @@ export class DayComponent implements OnInit {
   public highlightDatepicker: boolean = false;
   private highlightTimer;
 
-  constructor() {
+  constructor(private dateService: DateService) {
     this.date = new Date();
-    this.dateString = this.fillInDateString(this.date)
+    this.dateString = this.dateService.fillInDateString(this.date)
   }
-
 
   ngOnInit() {
   }
@@ -29,7 +29,7 @@ export class DayComponent implements OnInit {
 
   onDayChange(changeWith: number) {
     this.date.setDate(this.date.getDate() + changeWith);
-    this.dateString = this.fillInDateString(this.date);
+    this.dateString = this.dateService.fillInDateString(this.date);
     this.highlightDayPicker();
   }
 
@@ -43,27 +43,4 @@ export class DayComponent implements OnInit {
     this.highlightDatepicker = false;
   }
 
-  private fillInDateString(date: Date): string {
-    const year: number = date.getFullYear()
-    const day: number = date.getUTCDate();
-    const month: number = date.getMonth() + 1;
-
-    const yearString: string = year.toString();
-    let dayString: string;
-    let monthString: string;
-
-    if(day < 10) {
-      dayString = "0" + day;
-    } else {
-      dayString = day.toString();
-    }
-
-    if(month < 10) {
-      monthString = "0" + month;
-    } else {
-      monthString = month.toString();
-    }
-
-    return yearString+'-'+monthString+'-'+dayString
-  }
 }
