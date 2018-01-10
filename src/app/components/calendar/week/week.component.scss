@@ -1,7 +1,12 @@
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(7, 14.2%);
+  grid-template-columns: repeat(auto, 14.2%);
+  grid-column-gap: 0;
   grid-auto-rows: minmax(0px, auto);
+}
+
+.wrapper-days {
+  @extend .wrapper
 }
 
 .one {
@@ -31,6 +36,10 @@
 .seven {
   grid-column: 7;
   grid-row: 1;
+}
+
+.navweek {
+  display: none;
 }
 
 .wrapper-header {
@@ -133,6 +142,104 @@
 
 .highlight {
   @extend .datepicker:focus
+}
+
+.mobile-monday {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+
+.blank {
+  grid-column: 3;
+  grid-row: 1;
+  display: none;
+}
+
+.blank2 {
+  grid-column: 4;
+  grid-row: 1;
+  display: none;
+}
+
+.mobile-monday {
+  display: none;
+}
+.mobile-tuesday {
+  display: none;
+}
+.mobile-wednesday {
+  display: none;
+}
+.mobile-thursday {
+  display: none;
+}
+.mobile-friday {
+  display: none;
+}
+.mobile-saterday {
+  display: none;
+}
+.mobile-sunday {
+  display: none;
+}
+
+
+@media screen and (max-width: 1250px){
+  .wrapper-days {
+      display: none;
+  }
+  .wrapper-header {
+    display: none;
+  }
+
+  .navweek {
+    display: inline;
+  }
+
+  .mobile-day {
+    padding-top: 1rem;
+    display: inline;
+  }
+
+  .mobile-monday {
+    @extend .mobile-day
+  }
+  .mobile-tuesday {
+    @extend .mobile-day
+  }
+  .mobile-wednesday {
+    @extend .mobile-day
+  }
+  .mobile-thursday {
+    @extend .mobile-day
+  }
+  .mobile-friday {
+    @extend .mobile-day
+  }
+  .mobile-saterday {
+    @extend .mobile-day
+  }
+  .mobile-sunday {
+    @extend .mobile-day
+  }
+
+  .blank {
+    display: inline;
+  }
+
+  .blank2 {
+    display: inline;
+  }
+
+}
+
+.hidden {
+  display: none;
+}
+
+.btn:focus {
+  z-index: 0;
 }
 
 
