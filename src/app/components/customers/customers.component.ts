@@ -1,6 +1,6 @@
-import { Customer } from './../../models/customer.model';
+import { Customer } from '../../models/customer.model';
 import { Subscription } from 'rxjs/Subscription';
-import { CustomerService } from './../../services/customer.service';
+import { CustomerService } from '../../services/customer.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
