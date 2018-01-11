@@ -3,6 +3,8 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ClosingDay} from "../../models/closingday.model";
 import {SportsFacilityService} from "../../services/sportsfacility.service";
 import {SportsFacility} from "../../models/sportsFacility.model";
+import {ClosingDaysService} from "../../services/closingdays.service";
+import {reject} from "q";
 
 @Component({
   selector: 'app-closingdays',
@@ -12,9 +14,10 @@ import {SportsFacility} from "../../models/sportsFacility.model";
 export class ClosingdaysComponent implements OnInit {
   closingdaysForm: FormGroup;
   closingdays: ClosingDay[];
-  sportsFacility: SportsFacility;
+  closingday: ClosingDay;
+  id: string = '5a57313ea2f37c265c4326db';
 
-  constructor(private sportsFacilityService: SportsFacilityService) { }
+  constructor(private closingDaysService: ClosingDaysService) { }
 
   ngOnInit() {
     this.initForm();
@@ -24,17 +27,49 @@ export class ClosingdaysComponent implements OnInit {
   private initForm(){
     this.closingdaysForm = new FormGroup({
       'reason': new FormControl('',Validators.required),
-      'date': new FormControl('',Validators.required)
+      'date': new FormControl('',Validators.required),
+      'sportsFacilityId': new FormControl(this.id)
     })
   }
 
   getClosingDays(){
-    this.sportsFacilityService.getFacility("1")
-      .then(res => this.sportsFacility = res)
+    this.closingDaysService.getClosingDaysFromFacility(this.id)
+      .then(res => {
+        this.closingdays = res;
+      })
       .catch(error => console.log(error));
   }
 
-  onSave(){
-    // this.
+  onAddPromise(){
+    return new Promise((resolve,reject) => {
+      this.closingday = this.closingdaysForm.value;
+      this.closingday.sportsFacility = this.id;
+      console.log(this.closingday._id);
+
+      this.closingDaysService.addClosingDayToFacility(this.closingday);
+      this.closingdaysForm = new FormGroup({
+        'reason': new FormControl('',Validators.required),
+        'date': new FormControl('',Validators.required),
+        'sportsFacilityId': new FormControl(this.id)
+      })
+      resolve(true);
+    })
+  }
+
+  onAdd(){
+      this.onAddPromise()
+        .then(res => {
+          if(res == true){
+            console.log('testtest');
+            this.getClosingDays();
+          }
+        })
+  }
+
+  onDelete(closingday: ClosingDay){
+    console.log('ID: '+closingday._id);
+    this.closingDaysService.deleteClosingDayFromFacility(closingday._id);
+    let i = this.closingdays.indexOf(closingday);
+    this.closingdays.splice(i,1);
   }
 }

@@ -1,18 +1,28 @@
-<ul class="list-group">
-  <li class="list-group-item" *ngFor="let closingdays of sportsFacility.ClosingDays">
-    {{closingdays.name}} | {{closingdays.date}}
+<br>
+<form [formGroup]="closingdaysForm">
+  <button (click)="onAdd()" [disabled]="!closingdaysForm.valid" class="btn-primary" style="margin-left: 0.95em">Voeg een sluitingsdag toe.</button>
+
+  <div class="form-group col-md-3">
+    <label for="reason">Reden</label>
+    <textarea rows="3" type="text" id="reason" formControlName="reason" class="form-control"></textarea>
+  </div>
+
+  <div class="form-group col-md-2">
+    <input type="date" id="date" formControlName="date" class="form-control">
+  </div>
+
+</form>
+
+<br>
+
+<ul>
+  <li class="list-group-item col-md-3" *ngFor="let closingday of closingdays">
+    <div col-md-3>
+      {{closingday.reason}} | {{closingday.date|  date:'dd-MM-yyyy'}}
+      <button class="btn btn-danger" (click)="onDelete(closingday)">Verwijder</button>
+    </div>
   </li>
 </ul>
 
-<form [formGroup]="closingdaysForm">
-  <button class="btn-primary">Add day closed</button>
 
-  <div class="form-group">
-    <label for="reason">Reason</label>
-    <input type="text" id="reason" formControlName="reason" class="form-control">
-  </div>
 
-  <div>
-    <input type="date" id="date" formControlName="date" class="form-control">
-  </div>
-</form>

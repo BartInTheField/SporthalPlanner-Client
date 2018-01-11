@@ -18,6 +18,17 @@ export class SportsFacilityService{
       })
   }
 
+  updateFacility(id: string, sportsfacility: SportsFacility){
+    return this.http.put(''+id,sportsfacility)
+      .toPromise()
+      .then(response => {
+        console.log('Succes!');
+      })
+      .catch(error => {
+        return this.handleError(error);
+      })
+  }
+
   private handleError(error: any): Promise<any> {
     return Promise.reject(error.message || error);
   }

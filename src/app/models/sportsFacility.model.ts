@@ -6,7 +6,7 @@ import { ClosingDay } from "./closingday.model";
 export class SportsFacility {
 
     constructor(private id: number, private address: string, private city: string, private company: Company,
-                private email: string, private name: string, private openingHours: OpeningHours, private closingDays: ClosingDay, private phone: string,
+                private email: string, private name: string, private openingHours: OpeningHours, private phone: string,
                 private user: User) {}
 
     public get Id() : number {
@@ -56,14 +56,6 @@ export class SportsFacility {
     }
     public set OpeningHours(v : OpeningHours) {
         this.openingHours = v;
-    }
-
-    public get ClosingDays() : ClosingDay{
-      return this.closingDays;
-    }
-
-    public set ClosingDays(v : ClosingDay) {
-      this.closingDays = v;
     }
 
     public get Phone() : string {

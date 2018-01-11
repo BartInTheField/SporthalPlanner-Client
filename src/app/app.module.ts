@@ -20,6 +20,7 @@ import {AuthService} from "./services/auth.service";
 import { OpeningHoursService } from './services/openinghours.service';
 import { OpeninghoursComponent } from './components/time/openinghours/openinghours.component';
 import { ClosingdaysComponent } from './components/closingdays/closingdays.component';
+import {ClosingDaysService} from "./services/closingdays.service";
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { ClosingdaysComponent } from './components/closingdays/closingdays.compo
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [NavbarService, BookingService, OpeningHoursService, AuthService],
+  providers: [NavbarService, BookingService, OpeningHoursService, AuthService, ClosingDaysService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
