@@ -21,6 +21,10 @@ import { OpeningHoursService } from './services/openinghours.service';
 import { OpeninghoursComponent } from './components/time/openinghours/openinghours.component';
 import { ClosingdaysComponent } from './components/closingdays/closingdays.component';
 import {ClosingDaysService} from "./services/closingdays.service";
+import { DayComponent } from './components/calendar/day/day.component';
+import { WeekComponent } from './components/calendar/week/week.component';
+import { DayOverviewComponent } from './components/calendar/day/day-overview/day-overview.component';
+import { DateService } from './services/date.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,10 @@ import {ClosingDaysService} from "./services/closingdays.service";
     TimeComponent,
     LoginComponent,
     OpeninghoursComponent,
-    ClosingdaysComponent
+    ClosingdaysComponent,
+    DayComponent,
+    WeekComponent,
+    DayOverviewComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +50,7 @@ import {ClosingDaysService} from "./services/closingdays.service";
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [NavbarService, BookingService, OpeningHoursService, AuthService, ClosingDaysService],
+  providers: [NavbarService, BookingService, OpeningHoursService, AuthService, ClosingDaysService, DateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
