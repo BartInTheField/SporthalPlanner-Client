@@ -9,7 +9,7 @@
         <div *ngFor="let booking of bookingsToDisplay[i]" class="card bookingCard">
           <div class="card-body">
             <div class="card-title">
-              {{booking.user.UserName}}
+              {{booking.userId}}
             </div>
             {{booking.startingTime}} - {{booking.endingTime}}
           </div>

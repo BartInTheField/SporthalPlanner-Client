@@ -5,7 +5,7 @@ export class DateService {
 
   constructor() { }
 
-  public fillInDateString(date: Date): string {
+  public fillInDateString(date: Date, isUrl = false): string {
     const year: number = date.getFullYear()
     const day: number = date.getUTCDate();
     const month: number = date.getMonth() + 1;
@@ -25,7 +25,10 @@ export class DateService {
     } else {
       monthString = month.toString();
     }
+    if(isUrl)
+      return yearString+''+monthString+''+dayString
+    else
+      return yearString+'-'+monthString+'-'+dayString
 
-    return yearString+'-'+monthString+'-'+dayString
   }
 }
