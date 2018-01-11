@@ -6,10 +6,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { TimeComponent } from './components/time/time.component';
 import { LoginComponent } from './components/login/login.component';
+import { CustomersComponent } from './components/customers/customers.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent},
-  { path: 'plan', component: PlanComponent},
+  // { path: 'plan', component: PlanComponent},
+  { path: 'customers', component: CustomersComponent},
   { path: 'day', component: CalendarComponent},
   { path: 'week', component: CalendarComponent},
   { path: 'work', component: WorkComponent},

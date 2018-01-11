@@ -1,0 +1,13 @@
+<div class="container">
+  <div *ngIf="!isLoading">
+    <h2>Sporthal huren klanten</h2>
+    <div>
+      <p *ngFor="let customer of customersSporthalHuren">{{customer.sporthalHurenUsername}}</p>
+    </div>
+    <h2>Overige klanten</h2>
+    <div>
+      <p *ngFor="let customer of customersNonSporthalHuren">{{customer.firstName}} {{customer.lastName}}</p>
+    </div>
+  </div>
+  <div *ngIf="isLoading" class="loader"></div>
+</div>

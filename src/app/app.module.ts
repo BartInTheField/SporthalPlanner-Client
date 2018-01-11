@@ -1,3 +1,4 @@
+import { CustomerService } from './services/customer.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
@@ -23,6 +24,7 @@ import { DayComponent } from './components/calendar/day/day.component';
 import { WeekComponent } from './components/calendar/week/week.component';
 import { DayOverviewComponent } from './components/calendar/day/day-overview/day-overview.component';
 import { DateService } from './services/date.service';
+import { CustomersComponent } from './components/customers/customers.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { DateService } from './services/date.service';
     OpeninghoursComponent,
     DayComponent,
     WeekComponent,
-    DayOverviewComponent
+    DayOverviewComponent,
+    CustomersComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,7 @@ import { DateService } from './services/date.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [NavbarService, BookingService, OpeningHoursService, AuthService, DateService],
+  providers: [NavbarService, BookingService, OpeningHoursService, AuthService, DateService, CustomerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
