@@ -44,11 +44,12 @@ export class BookingService {
   }
   
   getBookingsByDate(date: Date){
-    return this.http.get(this.dayOverviewUrl+'/1/1/'+this.dateService.fillInDateString(date,true), {headers: this.headers})
+    this.http.get(this.dayOverviewUrl+'/1/1/'+this.dateService.fillInDateString(date,true), {headers: this.headers})
       .toPromise()
       .then((response) => {
         console.log(response.json());
-        return response.json() as Booking[];
+        this.bookings = response.json() as Booking[];
+        this.bookingsChanged.next(this.bookings.slice());
       })
       .catch((error) => {
         return this.handleError(error);

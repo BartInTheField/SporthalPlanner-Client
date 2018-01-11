@@ -2,6 +2,8 @@ import { DateService } from './../../../services/date.service';
 import { Component, OnInit } from '@angular/core';
 import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 import { BookingService } from '../../../services/booking.service';
+import { Booking } from '../../../models/booking.model';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-day',
@@ -9,6 +11,9 @@ import { BookingService } from '../../../services/booking.service';
   styleUrls: ['./day.component.scss']
 })
 export class DayComponent implements OnInit {
+
+  bookings: Booking[];
+  subscription: Subscription;
 
   public date: Date;
   public dateString: string;
@@ -21,6 +26,10 @@ export class DayComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.subscription = this.bookingService.bookingsChanged
+      .subscribe((bookings) => {
+        this.bookings = bookings;
+      });
     
     this.bookingService.getBookingsByDate(new Date(this.dateString));
   }
