@@ -19,6 +19,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AuthService} from "./services/auth.service";
 import { OpeningHoursService } from './services/openinghours.service';
 import { OpeninghoursComponent } from './components/time/openinghours/openinghours.component';
+import { ClosingdaysComponent } from './components/closingdays/closingdays.component';
+import {ClosingDaysService} from "./services/closingdays.service";
 import { DayComponent } from './components/calendar/day/day.component';
 import { WeekComponent } from './components/calendar/week/week.component';
 import { DayOverviewComponent } from './components/calendar/day/day-overview/day-overview.component';
@@ -36,6 +38,7 @@ import { DateService } from './services/date.service';
     TimeComponent,
     LoginComponent,
     OpeninghoursComponent,
+    ClosingdaysComponent,
     DayComponent,
     WeekComponent,
     DayOverviewComponent
@@ -47,7 +50,7 @@ import { DateService } from './services/date.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [NavbarService, BookingService, OpeningHoursService, AuthService, DateService],
+  providers: [NavbarService, BookingService, OpeningHoursService, AuthService, ClosingDaysService, DateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
