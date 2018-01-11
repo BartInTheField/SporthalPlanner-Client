@@ -27,7 +27,7 @@ b {
   cursor: pointer;
   height: $navRoundSize;
   width: $navRoundSize;
-  line-height: $navRoundSize;
+  line-height: $navRoundSize - 0.25rem;
   margin: 0 auto;
   text-align: center;
   border-radius: 50%;
