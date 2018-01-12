@@ -18,7 +18,7 @@ private serverUrl = environment.serverUrl + '/customers/';
   }
 
   public getCustomers() {
-    this.http.get(this.serverUrl + '5a5736441d2b574a586bebb2', {headers: this.headers})
+    this.http.get(this.serverUrl + '1', {headers: this.headers})
       .toPromise()
       .then((response) => {
           const customers: Customer[] = [];
@@ -38,7 +38,7 @@ private serverUrl = environment.serverUrl + '/customers/';
   }
 
   public postCustomer(firstName, lastName) {
-    const userId = '5a5736441d2b574a586bebb2';
+    const userId = '1';
     const customer = {userId: userId, firstName: firstName, lastName: lastName};
     this.http.post(this.serverUrl, customer, {headers: this.headers})
     .toPromise()
