@@ -4,8 +4,14 @@
     <div>
       <p *ngFor="let customer of customersSporthalHuren">{{customer.sporthalHurenUsername}}</p>
     </div>
-    <h2>Overige klanten</h2>
+    <h2>Overige klanten <button (click)="isAddingCustomer = !isAddingCustomer" class="btn btn-success btn-sm">+</button> </h2>
     <div>
+      <form *ngIf="isAddingCustomer">
+        <input type="text" placeholder="First name">
+        <input type="text" placeholder="Last name">
+        <br/>
+        <button class="btn btn-primary save">Save</button>
+      </form>
       <p *ngFor="let customer of customersNonSporthalHuren">{{customer.firstName}} {{customer.lastName}}</p>
     </div>
   </div>

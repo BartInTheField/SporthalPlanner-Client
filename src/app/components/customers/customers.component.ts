@@ -17,6 +17,7 @@ export class CustomersComponent implements OnInit {
   public customersNonSporthalHuren: Customer[] = [];
 
   public isLoading: boolean = true;
+  public isAddingCustomer: boolean = false;
 
   constructor(private customerService: CustomerService) { }
 
