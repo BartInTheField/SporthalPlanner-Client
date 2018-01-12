@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import * as moment from 'moment';
 
 @Injectable()
 export class DateService {
@@ -30,5 +31,17 @@ export class DateService {
     else
       return yearString+'-'+monthString+'-'+dayString
 
+  }
+
+  public getClosestMonday(date: Date){
+    if(moment(date).day() == 1){
+      return moment(date).format('YYYY-MM-DD');
+    }
+    for(let i = 0; i < 7;i++) {
+      let newday = moment(date).subtract(i,'day').day();
+      if(newday == 1){
+        return moment(date).subtract(i,'day').format('YYYY-MM-DD');
+      }
+    }
   }
 }

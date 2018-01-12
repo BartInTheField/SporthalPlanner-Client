@@ -4,12 +4,13 @@ import { Injectable } from '@angular/core';
 import { Customer } from '../models/customer.model';
 import { Http, Headers, URLSearchParams } from '@angular/http';
 import { environment } from '../../environments/environment';
+import { PACKAGE_ROOT_URL } from '@angular/core/src/application_tokens';
 
 
 @Injectable()
 export class CustomerService {
 private headers = new Headers({ 'Content-Type' : 'application/json'});
-private serverUrl = environment.serverUrl + '/customers/' + '5a5736441d2b574a586bebb2';
+private serverUrl = environment.serverUrl + '/customers/';
 
   public customerSubject = new Subject<Customer[]>();
 
@@ -17,23 +18,41 @@ private serverUrl = environment.serverUrl + '/customers/' + '5a5736441d2b574a586
   }
 
   public getCustomers() {
-    this.http.get(this.serverUrl, {headers: this.headers})
+    this.http.get(this.serverUrl + '1', {headers: this.headers})
       .toPromise()
       .then((response) => {
           const customers: Customer[] = [];
           const responseArray = response.json();
           responseArray.forEach(customer => {
             if (customer.isSporthalHurenCustomer) {
-              customers.push( CustomerMaker.makeSporthalHuren(customer.id, customer.sporthalHurenUsername, customer.sporthalHurenUserId));
+              customers.push( CustomerMaker.makeSporthalHuren(customer._id, customer.sporthalHurenUsername, customer.sporthalHurenUserId));
             } else {
-              customers.push( CustomerMaker.makeNonSporthalHuren(customer.id, customer.firstName, customer.lastName));
+              customers.push( CustomerMaker.makeNonSporthalHuren(customer._id, customer.firstName, customer.lastName));
             }
           });
           this.customerSubject.next(customers);
       })
       .catch((error) => {
-        return this.handleError(error);
+        this.handleError(error);
       });
+  }
+
+  public postCustomer(firstName, lastName) {
+    const userId = '1';
+    const customer = {userId: userId, firstName: firstName, lastName: lastName};
+    this.http.post(this.serverUrl, customer, {headers: this.headers})
+    .toPromise()
+      .catch((error) => {
+        this.handleError(error);
+      })
+  }
+
+  public deleteCustomer(id: string) {
+    this.http.delete(this.serverUrl + id, {headers: this.headers})
+    .toPromise()
+      .catch((error) => {
+        this.handleError(error);
+      })
   }
 
   private handleError(error: any): Promise<any> {

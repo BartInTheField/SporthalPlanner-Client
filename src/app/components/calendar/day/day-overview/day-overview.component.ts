@@ -35,7 +35,6 @@ export class DayOverviewComponent implements OnInit, OnChanges{
     }
 
     if(this.bookings){
-
       this.bookings.forEach(booking => {
         const firstNumber = parseInt(booking.startingTime.substring(0, 2));
         this.bookingsToDisplay[firstNumber].push(booking);
