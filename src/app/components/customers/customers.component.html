@@ -7,12 +7,16 @@
     <h2>Overige klanten <button (click)="isAddingCustomer = !isAddingCustomer" class="btn btn-success btn-sm">+</button> </h2>
     <div>
       <form *ngIf="isAddingCustomer">
-        <input type="text" placeholder="First name">
-        <input type="text" placeholder="Last name">
+        <input #first type="text" placeholder="First name">
+        <input #last type="text" placeholder="Last name">
         <br/>
-        <button class="btn btn-primary save">Save</button>
+        <button (click)="addCustomer(first.value, last.value); isAddingCustomer = !isAddingCustomer" class="btn btn-primary save">Save</button>
       </form>
-      <p *ngFor="let customer of customersNonSporthalHuren">{{customer.firstName}} {{customer.lastName}}</p>
+      <p *ngFor="let customer of customersNonSporthalHuren">{{customer.firstName}} {{customer.lastName}}
+          <button *ngIf="customer.id !== null" (click)="deleteCustomer(customer.id);" class="btn btn-danger btn-sm delete ">
+              -
+          </button>
+      </p>
     </div>
   </div>
   <div *ngIf="isLoading" class="loader"></div>
