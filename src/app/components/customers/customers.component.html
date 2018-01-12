@@ -1,6 +1,6 @@
 <div class="container">
   <div *ngIf="!isLoading">
-    <h2>Sporthal huren klanten</h2>
+    <h2 *ngIf="customersSporthalHuren.length !== 0">Sporthal huren klanten</h2>
     <div>
       <p *ngFor="let customer of customersSporthalHuren">{{customer.sporthalHurenUsername}}</p>
     </div>
