@@ -1,5 +1,5 @@
 import { DateService } from './../../../services/date.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 import { BookingService } from '../../../services/booking.service';
 import { Booking } from '../../../models/booking.model';
@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs/Subscription';
   templateUrl: './day.component.html',
   styleUrls: ['./day.component.scss']
 })
-export class DayComponent implements OnInit {
+export class DayComponent implements OnInit, OnDestroy {
 
   bookings: Booking[];
   subscription: Subscription;
@@ -32,6 +32,10 @@ export class DayComponent implements OnInit {
       });
     
     this.bookingService.getBookingsByDate(new Date(this.dateString));
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   changeDate(date: string) {

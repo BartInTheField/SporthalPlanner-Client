@@ -35,25 +35,25 @@
             </div>
           </div>
             <div [ngClass]="{ 'hidden' : !showMonday }" class="mobile-monday" >
-                <app-day-overview></app-day-overview>
+                <app-day-overview [bookings]="weekOverview[0] ? weekOverview[0] : []"></app-day-overview>
             </div>
             <div [ngClass]="{ 'hidden' : !showTuesday }" class="mobile-tuesday">
-                <app-day-overview></app-day-overview>
+                <app-day-overview [bookings]="weekOverview[1] ? weekOverview[1] : []"></app-day-overview>
             </div>
             <div [ngClass]="{ 'hidden' : !showWednesday }" class="mobile-wednesday">
-                <app-day-overview></app-day-overview>
+                <app-day-overview [bookings]="weekOverview[2] ? weekOverview[2] : []"></app-day-overview>
             </div>
             <div [ngClass]="{ 'hidden' : !showThursday }" class="mobile-thursday">
-                <app-day-overview></app-day-overview>
+                <app-day-overview [bookings]="weekOverview[3] ? weekOverview[3] : []"></app-day-overview>
             </div>
             <div [ngClass]="{ 'hidden' : !showFriday }" class="mobile-friday">
-                <app-day-overview></app-day-overview>
+                <app-day-overview [bookings]="weekOverview[4] ? weekOverview[4] : []"></app-day-overview>
             </div>
             <div [ngClass]="{ 'hidden' : !showSaterday }" class="mobile-saterday">
-                <app-day-overview></app-day-overview>
+                <app-day-overview [bookings]="weekOverview[5] ? weekOverview[5] : []"></app-day-overview>
             </div>
             <div [ngClass]="{ 'hidden' : !showSunday }" class="mobile-sunday">
-                <app-day-overview></app-day-overview>
+                <app-day-overview [bookings]="weekOverview[6] ? weekOverview[6] : []"></app-day-overview>
             </div>
 
             <div class="blank">
@@ -72,12 +72,12 @@
           <div class="seven-header">Sunday</div>
         </div>
         <div class="wrapper-days">
-            <div class="one"><app-day-overview></app-day-overview></div>
-            <div class="two"><app-day-overview></app-day-overview></div>
-            <div class="three"><app-day-overview></app-day-overview></div>
-            <div class="four"><app-day-overview></app-day-overview></div>
-            <div class="five"><app-day-overview></app-day-overview></div>
-            <div class="six"><app-day-overview></app-day-overview></div>
-            <div class="seven"><app-day-overview></app-day-overview></div>
+            <div class="one"><app-day-overview [bookings]="weekOverview[0] ? weekOverview[0] : []"></app-day-overview></div>
+            <div class="two"><app-day-overview [bookings]="weekOverview[1] ? weekOverview[1] : []" ></app-day-overview></div>
+            <div class="three"><app-day-overview [bookings]="weekOverview[2] ? weekOverview[2] : []"></app-day-overview></div>
+            <div class="four"><app-day-overview [bookings]="weekOverview[3] ? weekOverview[3] : []"></app-day-overview></div>
+            <div class="five"><app-day-overview [bookings]="weekOverview[4] ? weekOverview[4] : []"></app-day-overview></div>
+            <div class="six"><app-day-overview [bookings]="weekOverview[5] ? weekOverview[5] : []"></app-day-overview></div>
+            <div class="seven"><app-day-overview [bookings]="weekOverview[6] ? weekOverview[6] : []"></app-day-overview></div>
         </div>
 </div>
