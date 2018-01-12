@@ -1,17 +1,32 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {OpeningHours} from '../../../models/openingHours.model';
+import {Subscription} from 'rxjs/Subscription';
+import {ClosingDaysService} from '../../../services/closingdays.service';
 
 @Component({
   selector: 'app-openinghours',
   templateUrl: './openinghours.component.html',
   styleUrls: ['./openinghours.component.scss']
 })
-export class OpeninghoursComponent implements OnInit {
+export class OpeninghoursComponent implements OnInit, OnDestroy {
   @Input() openingHours: OpeningHours;
+  private daysClosedSubscription: Subscription;
 
-  constructor() { }
+  public daysClosed : number[] = [];
+
+  constructor(private closingDaysService: ClosingDaysService) { }
 
   ngOnInit() {
+    this.daysClosedSubscription = this.closingDaysService.daysClosedSubject
+      .subscribe((next: number[]) => {
+        this.daysClosed = next;
+        console.log(next);
+      })
+    this.closingDaysService.getClosingDaysFromFacility('5a57313ea2f37c265c4326db')
+  }
+
+  ngOnDestroy() {
+    this.daysClosedSubscription.unsubscribe();
   }
 
   parseOpeningHours(openingHours: string, openingTime: true ): string {

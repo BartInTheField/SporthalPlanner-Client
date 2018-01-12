@@ -1,4 +1,4 @@
-import { CustomerMaker } from './../models/customer.model';
+import { CustomerMaker } from '../models/customer.model';
 import { Subject } from 'rxjs/Subject';
 import { Injectable } from '@angular/core';
 import { Customer } from '../models/customer.model';
@@ -22,7 +22,7 @@ private serverUrl = environment.serverUrl + '/customers/';
       .toPromise()
       .then((response) => {
           const customers: Customer[] = [];
-          const responseArray = response.json()
+          const responseArray = response.json();
           responseArray.forEach(customer => {
             if (customer.isSporthalHurenCustomer) {
               customers.push( CustomerMaker.makeSporthalHuren(customer._id, customer.sporthalHurenUsername, customer.sporthalHurenUserId));

@@ -20,7 +20,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AuthService} from "./services/auth.service";
 import { OpeningHoursService } from './services/openinghours.service';
 import { OpeninghoursComponent } from './components/time/openinghours/openinghours.component';
-import { ClosingdaysComponent } from './components/closingdays/closingdays.component';
+import { ClosingdaysComponent } from './components/time/closingdays/closingdays.component';
 import {ClosingDaysService} from "./services/closingdays.service";
 import { DayComponent } from './components/calendar/day/day.component';
 import { WeekComponent } from './components/calendar/week/week.component';
