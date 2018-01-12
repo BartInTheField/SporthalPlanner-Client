@@ -1,10 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {ClosingDay} from "../../models/closingday.model";
-import {SportsFacilityService} from "../../services/sportsfacility.service";
-import {SportsFacility} from "../../models/sportsFacility.model";
-import {ClosingDaysService} from "../../services/closingdays.service";
+import {ClosingDay} from "../../../models/closingday.model";
+import {SportsFacilityService} from "../../../services/sportsfacility.service";
+import {SportsFacility} from "../../../models/sportsFacility.model";
+import {ClosingDaysService} from "../../../services/closingdays.service";
 import {reject} from "q";
+import * as moment from 'moment';
+import {DateService} from '../../../services/date.service';
+import {Customer} from '../../../models/customer.model';
+import {Subject} from 'rxjs/Subject';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-closingdays',
@@ -12,10 +17,11 @@ import {reject} from "q";
   styleUrls: ['./closingdays.component.scss']
 })
 export class ClosingdaysComponent implements OnInit {
-  closingdaysForm: FormGroup;
-  closingdays: ClosingDay[];
-  closingday: ClosingDay;
-  id: string = '5a57313ea2f37c265c4326db';
+  private closingdaysForm: FormGroup;
+  private closingdays: ClosingDay[];
+  private closingday: ClosingDay;
+  private id: string = '5a57313ea2f37c265c4326db';
+  private weekNumber;
 
   constructor(private closingDaysService: ClosingDaysService) { }
 
@@ -51,7 +57,7 @@ export class ClosingdaysComponent implements OnInit {
         'reason': new FormControl('',Validators.required),
         'date': new FormControl('',Validators.required),
         'sportsFacilityId': new FormControl(this.id)
-      })
+      });
       resolve(true);
     })
   }

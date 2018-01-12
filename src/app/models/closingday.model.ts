@@ -2,7 +2,8 @@ export class ClosingDay{
   private _reason: string;
   private _date: Date;
   private id: string;
-  private _sportsFacility
+  private _sportsFacility;
+  private _weekNumber: number;
 
   get reason(): string {
     return this._reason;
@@ -21,14 +22,19 @@ export class ClosingDay{
   get _id(): string {
     return this.id;
   }
-  set _id(value: string) {
-    this.id = value;
-  }
 
   get sportsFacility(): string {
     return this._sportsFacility;
   }
   set sportsFacility(value: string) {
     this._sportsFacility = value;
+  }
+
+  get weekNumber(): number {
+    return this._weekNumber;
+  }
+
+  set weekNumber(value: number) {
+    this._weekNumber = value;
   }
 }
