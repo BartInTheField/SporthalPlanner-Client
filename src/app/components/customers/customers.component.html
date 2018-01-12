@@ -2,7 +2,7 @@
   <div *ngIf="!isLoading">
     <h2 *ngIf="customersSporthalHuren.length !== 0">Sporthal huren klanten</h2>
     <div>
-      <p *ngFor="let customer of customersSporthalHuren">{{customer.sporthalHurenUsername}}</p>
+      <p *ngFor="let customer of customersSporthalHuren">{{customer.sporthalHurenId}}</p>
     </div>
     <h2>Overige klanten <button (click)="isAddingCustomer = !isAddingCustomer" class="btn btn-success btn-sm">+</button> </h2>
     <div>
