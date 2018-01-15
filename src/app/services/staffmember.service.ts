@@ -19,7 +19,6 @@ export class StaffMemberService {
     return Promise.reject(error.message || error);
   }
 
-  //NOTE: Deze functie is niet getest!!!
   public getStaffMembers() {
     this.http.get(this.staffMemberUrl, {headers: this.headers})
       .toPromise()
@@ -32,7 +31,6 @@ export class StaffMemberService {
       });
   }
 
-  //NOTE: Deze functie is niet getest!!!
   public getStaffMember() {
     return this.http.get(this.staffMemberUrl, {headers: this.headers})
       .toPromise()
