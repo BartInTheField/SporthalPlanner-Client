@@ -5,7 +5,25 @@
   grid-auto-rows: minmax(0px, auto);
 }
 
+.wrapper-mobile {
+  grid-template-columns: repeat(auto, auto);
+  @extend .wrapper
+}
+
+.navweek {
+  display: none;
+}
+
+.mobile-weeks {
+  width: 75%;
+}
+
+.navmobile {
+  width: 20%;
+}
+
 .wrapper-days {
+  grid-template-columns: repeat(7, 14.2%);
   @extend .wrapper
 }
 
@@ -36,10 +54,6 @@
 .seven {
   grid-column: 7;
   grid-row: 1;
-}
-
-.navweek {
-  display: none;
 }
 
 .wrapper-header {
@@ -90,7 +104,7 @@
 }
 
 .week{
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   padding-left: 1rem;
 }
@@ -147,19 +161,6 @@
 .mobile-monday {
   grid-column: 2;
   grid-row: 1;
-}
-
-
-.blank {
-  grid-column: 3;
-  grid-row: 1;
-  display: none;
-}
-
-.blank2 {
-  grid-column: 4;
-  grid-row: 1;
-  display: none;
 }
 
 .mobile-monday {
@@ -222,14 +223,6 @@
   }
   .mobile-sunday {
     @extend .mobile-day
-  }
-
-  .blank {
-    display: inline;
-  }
-
-  .blank2 {
-    display: inline;
   }
 
 }
