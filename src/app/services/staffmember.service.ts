@@ -44,12 +44,15 @@ export class StaffMemberService {
   }
 
   public addStaffMember(staffmember: StaffMember) {
-    this.http.post(this.staffMemberUrl, staffmember)
+    return this.http.post(this.staffMemberUrl, staffmember)
       .toPromise()
       .then((response) => {
 
       })
       .catch(error => {
+        return this.handleError(error);
+      });
+  }
 
   public deleteStaffMember(id: number) {
     return this.http.delete(this.staffMemberUrl + '/' + id, { headers: this.headers })
