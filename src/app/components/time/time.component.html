@@ -1,11 +1,14 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-3 hours">
       <app-openinghours *ngIf="openingHours"
         [openingHours]="openingHours"></app-openinghours>
+      <br/>
+    </div>
+    <div class="col">
+      <app-closingdays></app-closingdays>
     </div>
   </div>
-    <app-closingdays></app-closingdays>
 </div>
 
 
