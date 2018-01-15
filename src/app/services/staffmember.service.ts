@@ -19,6 +19,7 @@ export class StaffMemberService {
     return Promise.reject(error.message || error);
   }
 
+  //NOTE: Deze functie is niet getest!!!
   public getStaffMembers() {
     this.http.get(this.staffMemberUrl, {headers: this.headers})
       .toPromise()
@@ -41,6 +42,14 @@ export class StaffMemberService {
         return this.handleError(error);
       });
   }
+
+  public addStaffMember(staffmember: StaffMember) {
+    this.http.post(this.staffMemberUrl, staffmember)
+      .toPromise()
+      .then((response) => {
+
+      })
+      .catch(error => {
 
   public deleteStaffMember(id: number) {
     return this.http.delete(this.staffMemberUrl + '/' + id, { headers: this.headers })
