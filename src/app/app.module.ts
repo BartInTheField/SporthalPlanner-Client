@@ -27,6 +27,7 @@ import { WeekComponent } from './components/calendar/week/week.component';
 import { DayOverviewComponent } from './components/calendar/day/day-overview/day-overview.component';
 import { DateService } from './services/date.service';
 import { CustomersComponent } from './components/customers/customers.component';
+import { AddMemberComponent } from './components/work/add-member/add-member.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { CustomersComponent } from './components/customers/customers.component';
     DayComponent,
     WeekComponent,
     DayOverviewComponent,
-    CustomersComponent
+    CustomersComponent,
+    AddMemberComponent
   ],
   imports: [
     BrowserModule,
