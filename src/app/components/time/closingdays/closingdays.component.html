@@ -18,7 +18,7 @@
 <ul>
   <li class="list-group-item col-md-3" *ngFor="let closingday of closingdays">
     <div col-md-3>
-      {{closingday.reason}} | {{closingday.date|  date:'dd-MM-yyyy'}}
+      {{closingday.reason}} | {{closingday.date |  date:'dd-MM-yyyy'}}
       <button class="btn btn-danger" (click)="onDelete(closingday)">Verwijder</button>
     </div>
   </li>
