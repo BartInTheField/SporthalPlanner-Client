@@ -17,7 +17,7 @@ export class StaffMemberService {
   }
 
   //NOTE: Deze functie is niet getest!!! 
-  public getBookings() {
+  public getStaffMembers() {
     return this.http.get(this.staffMemberUrl, {headers: this.headers})
       .toPromise()
       .then((response) => {
@@ -30,7 +30,7 @@ export class StaffMemberService {
   }
 
   //NOTE: Deze functie is niet getest!!! 
-  public getBooking() {
+  public getStaffMember() {
     return this.http.get(this.staffMemberUrl, {headers: this.headers})
       .toPromise()
       .then((response) => {
