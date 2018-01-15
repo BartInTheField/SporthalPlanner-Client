@@ -5,71 +5,71 @@ import { ClosingDay } from "./closingday.model";
 
 export class SportsFacility {
 
-    constructor(private id: number, private address: string, private city: string, private company: Company,
-                private email: string, private name: string, private openingHours: OpeningHours, private phone: string,
-                private user: User) {}
+    constructor(private id: string, private Address: string, private City: string, private Company: Company,
+                private Email: string, private Name: string, private OpeningHours: OpeningHours, private Phone: string,
+                private User: User) {}
 
-    public get Id() : number {
-        return this.id;
+    public get _id() : string {
+      return this.id;
     }
-    public set Id(v : number) {
+    public set _id(v : string) {
         this.id = v;
-    }
+      }
 
-    public get Address() : string {
-        return this.address;
-    }
-    public set Address(v : string) {
-        this.address = v;
-    }
+    public get address() : string {
+        return this.Address;
+      }
+    public set address(v : string) {
+        this.Address = v;
+      }
 
-    public get City() : string {
-        return this.city;
-    }
-    public set City(v : string) {
-        this.city = v;
-    }
+    public get city() : string {
+        return this.City;
+      }
+    public set city(v : string) {
+        this.City = v;
+      }
 
-    public get Company() : Company {
-        return this.company;
-    }
-    public set Company(v : Company) {
-        this.company = v;
-    }
+    public get company() : Company {
+        return this.Company;
+      }
+    public set company(v : Company) {
+        this.Company = v;
+      }
 
-    public get Email() : string {
-        return this.email;
-    }
-    public set Email(v : string) {
-        this.email = v;
-    }
+    public get email() : string {
+        return this.Email;
+      }
+    public set email(v : string) {
+        this.Email = v;
+      }
 
-    public get Name() : string {
-        return this.name;
-    }
-    public set Name(v : string) {
-        this.name = v;
-    }
+    public get name() : string {
+        return this.Name;
+      }
+    public set name(v : string) {
+        this.Name = v;
+      }
 
-    public get OpeningHours() : OpeningHours {
-        return this.openingHours;
-    }
-    public set OpeningHours(v : OpeningHours) {
-        this.openingHours = v;
-    }
+    public get openingHours() : OpeningHours {
+        return this.OpeningHours;
+      }
+    public set openingHours(v : OpeningHours) {
+        this.OpeningHours = v;
+      }
 
-    public get Phone() : string {
-        return this.phone;
-    }
-    public set Phone(v : string) {
-        this.phone = v;
-    }
+    public get phone() : string {
+        return this.Phone;
+      }
+    public set phone(v : string) {
+        this.Phone = v;
+      }
 
-    public get User() : User {
-        return this.user;
+    public get user() : User {
+        return this.User;
     }
-    public set User(v : User) {
-        this.user = v;
+    public set user(v : User) {
+        this.User = v;
     }
 
 }

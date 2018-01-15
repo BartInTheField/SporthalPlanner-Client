@@ -27,6 +27,8 @@ import { WeekComponent } from './components/calendar/week/week.component';
 import { DayOverviewComponent } from './components/calendar/day/day-overview/day-overview.component';
 import { DateService } from './services/date.service';
 import { CustomersComponent } from './components/customers/customers.component';
+import { FacilityselectorComponent } from './components/facilityselector/facilityselector.component';
+import {SportsFacilityService} from "./services/sportsfacility.service";
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { CustomersComponent } from './components/customers/customers.component';
     DayComponent,
     WeekComponent,
     DayOverviewComponent,
-    CustomersComponent
+    CustomersComponent,
+    FacilityselectorComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,7 @@ import { CustomersComponent } from './components/customers/customers.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [NavbarService, BookingService, OpeningHoursService, AuthService, ClosingDaysService, DateService, CustomerService],
+  providers: [NavbarService, BookingService, OpeningHoursService, AuthService, ClosingDaysService, DateService, CustomerService, SportsFacilityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

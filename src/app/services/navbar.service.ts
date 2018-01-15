@@ -20,5 +20,4 @@ export class NavbarService {
       this.navbarIsOut.next(this.navbarIsOutBool);
     }
    }
-
 }

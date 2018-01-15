@@ -1,5 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<app-navbar></app-navbar>
+<div *ngIf="isAuth()">
+  <div *ngIf="selectedASportsHall()">
+    <app-navbar></app-navbar>
+  </div>
+</div>
 <app-bar></app-bar>
 <div [ngClass]="{'full' : !navBarIsShowing}"  class="main">
   <router-outlet></router-outlet>

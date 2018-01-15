@@ -1,28 +1,22 @@
 import {Injectable} from "@angular/core";
 import {Http} from "@angular/http";
 import {SportsFacility} from "../models/sportsFacility.model";
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class SportsFacilityService{
+  private sportsfacilities: SportsFacility[];
+  private sportsFacilitiesURl = environment.serverUrl + '/sportsfacilities/';
+
   constructor(private http: Http) {
   }
 
-  getFacility(id: string){
-    return this.http.get(''+id)
+  getFacilities(){
+    return this.http.get(this.sportsFacilitiesURl)
       .toPromise()
       .then(res => {
+        this.sportsfacilities = res.json() as SportsFacility[];
         return res.json() as SportsFacility;
-      })
-      .catch(error => {
-        return this.handleError(error);
-      })
-  }
-
-  updateFacility(id: string, sportsfacility: SportsFacility){
-    return this.http.put(''+id,sportsfacility)
-      .toPromise()
-      .then(response => {
-        console.log('Succes!');
       })
       .catch(error => {
         return this.handleError(error);
