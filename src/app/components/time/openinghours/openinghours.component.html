@@ -1,111 +1,110 @@
-<h3>Openingstijden</h3>
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-2">
-      <table *ngIf="openingHours !== null; else noOpeningHours">
+  <h3>Openingstijden</h3>
 
-        <tr *ngIf="isOpen(openingHours.monday) && daysClosed[0] === undefined; else closedMonday">
-          <td class="day">Maandag</td>
-          <td>{{ parseOpeningHours(openingHours.monday, true) }}</td>
-          <td> - </td>
-          <td class="closing-hour">{{ parseOpeningHours(openingHours.monday, false) }}</td>
-        </tr>
-        <ng-template #closedMonday>
-          <tr>
+    <div class="row">
+      <div class="col-sm-2">
+        <table *ngIf="openingHours !== null; else noOpeningHours">
+
+          <tr *ngIf="isOpen(openingHours.monday) && daysClosed[0] === undefined; else closedMonday">
             <td class="day">Maandag</td>
-            <td colspan="3" style="text-align: right; width: 100%;" class="closing-hour">GESLOTEN</td>
+            <td>{{ parseOpeningHours(openingHours.monday, true) }}</td>
+            <td> - </td>
+            <td class="closing-hour">{{ parseOpeningHours(openingHours.monday, false) }}</td>
           </tr>
-        </ng-template>
+          <ng-template #closedMonday>
+            <tr>
+              <td class="day">Maandag</td>
+              <td colspan="3" style="text-align: right; width: 100%;" class="closing-hour">GESLOTEN</td>
+            </tr>
+          </ng-template>
 
-        <tr *ngIf="isOpen(openingHours.tuesday) && daysClosed[1] === undefined; else closedTuesday">
-          <td class="day">Dinsdag</td>
-          <td>{{ parseOpeningHours(openingHours.tuesday, true) }}</td>
-          <td> - </td>
-          <td class="closing-hour">{{ parseOpeningHours(openingHours.tuesday, false) }}</td>
-        </tr>
-        <ng-template #closedTuesday>
-          <tr>
+          <tr *ngIf="isOpen(openingHours.tuesday) && daysClosed[1] === undefined; else closedTuesday">
             <td class="day">Dinsdag</td>
-            <td colspan="3" style="text-align: right; width: 100%;" class="closing-hour">GESLOTEN</td>
+            <td>{{ parseOpeningHours(openingHours.tuesday, true) }}</td>
+            <td> - </td>
+            <td class="closing-hour">{{ parseOpeningHours(openingHours.tuesday, false) }}</td>
           </tr>
-        </ng-template>
+          <ng-template #closedTuesday>
+            <tr>
+              <td class="day">Dinsdag</td>
+              <td colspan="3" style="text-align: right; width: 100%;" class="closing-hour">GESLOTEN</td>
+            </tr>
+          </ng-template>
 
-        <tr *ngIf="isOpen(openingHours.wednesday) && daysClosed[2] === undefined; else closedWednesday">
-          <td class="day">Woensdag</td>
-          <td>{{ parseOpeningHours(openingHours.wednesday, true) }}</td>
-          <td> - </td>
-          <td class="closing-hour">{{ parseOpeningHours(openingHours.wednesday, false) }}</td>
-        </tr>
-        <ng-template #closedWednesday>
-          <tr>
+          <tr *ngIf="isOpen(openingHours.wednesday) && daysClosed[2] === undefined; else closedWednesday">
             <td class="day">Woensdag</td>
-            <td colspan="3" style="text-align: right;" class="closing-hour">GESLOTEN</td>
+            <td>{{ parseOpeningHours(openingHours.wednesday, true) }}</td>
+            <td> - </td>
+            <td class="closing-hour">{{ parseOpeningHours(openingHours.wednesday, false) }}</td>
           </tr>
-        </ng-template>
+          <ng-template #closedWednesday>
+            <tr>
+              <td class="day">Woensdag</td>
+              <td colspan="3" style="text-align: right;" class="closing-hour">GESLOTEN</td>
+            </tr>
+          </ng-template>
 
-        <tr *ngIf="isOpen(openingHours.thursday)  && daysClosed[3] === undefined; else closedThursday">
-          <td class="day">Donderdag</td>
-          <td>{{ parseOpeningHours(openingHours.thursday, true) }}</td>
-          <td> - </td>
-          <td class="closing-hour">{{ parseOpeningHours(openingHours.thursday, false) }}</td>
-        </tr>
-        <ng-template #closedThursday>
-          <tr>
+          <tr *ngIf="isOpen(openingHours.thursday)  && daysClosed[3] === undefined; else closedThursday">
             <td class="day">Donderdag</td>
-            <td colspan="3" style="text-align: right;" class="closing-hour">GESLOTEN</td>
+            <td>{{ parseOpeningHours(openingHours.thursday, true) }}</td>
+            <td> - </td>
+            <td class="closing-hour">{{ parseOpeningHours(openingHours.thursday, false) }}</td>
           </tr>
-        </ng-template>
+          <ng-template #closedThursday>
+            <tr>
+              <td class="day">Donderdag</td>
+              <td colspan="3" style="text-align: right;" class="closing-hour">GESLOTEN</td>
+            </tr>
+          </ng-template>
 
-        <tr *ngIf="isOpen(openingHours.friday)  && daysClosed[4] === undefined; else closedFriday">
-          <td class="day">Vrijdag</td>
-          <td>{{ parseOpeningHours(openingHours.friday, true) }}</td>
-          <td> - </td>
-          <td class="closing-hour">{{ parseOpeningHours(openingHours.friday, false) }}</td>
-        </tr>
-        <ng-template #closedFriday>
-          <tr>
+          <tr *ngIf="isOpen(openingHours.friday)  && daysClosed[4] === undefined; else closedFriday">
             <td class="day">Vrijdag</td>
-            <td colspan="3" style="text-align: right;" class="closing-hour">GESLOTEN</td>
+            <td>{{ parseOpeningHours(openingHours.friday, true) }}</td>
+            <td> - </td>
+            <td class="closing-hour">{{ parseOpeningHours(openingHours.friday, false) }}</td>
           </tr>
-        </ng-template>
+          <ng-template #closedFriday>
+            <tr>
+              <td class="day">Vrijdag</td>
+              <td colspan="3" style="text-align: right;" class="closing-hour">GESLOTEN</td>
+            </tr>
+          </ng-template>
 
-        <tr *ngIf="isOpen(openingHours.saturday)  && daysClosed[5] === undefined; else closedSaturday">
-          <td class="day">Zaterdag</td>
-          <td>{{ parseOpeningHours(openingHours.saturday, true) }}</td>
-          <td> - </td>
-          <td class="closing-hour">{{ parseOpeningHours(openingHours.saturday, false) }}</td>
-        </tr>
-        <ng-template #closedSaturday>
-          <tr>
+          <tr *ngIf="isOpen(openingHours.saturday)  && daysClosed[5] === undefined; else closedSaturday">
             <td class="day">Zaterdag</td>
-            <td colspan="3" style="text-align: right;" class="closing-hour">GESLOTEN</td>
+            <td>{{ parseOpeningHours(openingHours.saturday, true) }}</td>
+            <td> - </td>
+            <td class="closing-hour">{{ parseOpeningHours(openingHours.saturday, false) }}</td>
           </tr>
-        </ng-template>
+          <ng-template #closedSaturday>
+            <tr>
+              <td class="day">Zaterdag</td>
+              <td colspan="3" style="text-align: right;" class="closing-hour">GESLOTEN</td>
+            </tr>
+          </ng-template>
 
-        <tr *ngIf="isOpen(openingHours.sunday)  && daysClosed[6] === undefined; else closedSunday">
-          <td class="day">Zondag</td>
-          <td>{{ parseOpeningHours(openingHours.sunday, true) }}</td>
-          <td> - </td>
-          <td >{{ parseOpeningHours(openingHours.sunday, false) }}</td>
-        </tr>
-        <ng-template #closedSunday>
-          <tr>
+          <tr *ngIf="isOpen(openingHours.sunday)  && daysClosed[6] === undefined; else closedSunday">
             <td class="day">Zondag</td>
-            <td colspan="3" style="text-align: right;" class="closing-hour">GESLOTEN</td>
+            <td>{{ parseOpeningHours(openingHours.sunday, true) }}</td>
+            <td> - </td>
+            <td >{{ parseOpeningHours(openingHours.sunday, false) }}</td>
           </tr>
+          <ng-template #closedSunday>
+            <tr>
+              <td class="day">Zondag</td>
+              <td colspan="3" style="text-align: right;" class="closing-hour">GESLOTEN</td>
+            </tr>
+          </ng-template>
+
+        </table>
+
+        <ng-template #noOpeningHours>
+          <table>
+            <tr>
+              <td class="day">Kon geen openingstijden ophalen.</td>
+            </tr>
+          </table>
         </ng-template>
 
-      </table>
-
-      <ng-template #noOpeningHours>
-        <table>
-          <tr>
-            <td class="day">Kon geen openingstijden ophalen.</td>
-          </tr>
-        </table>
-      </ng-template>
-
-    </div>
+      </div>
   </div>
-</div>

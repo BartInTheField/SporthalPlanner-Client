@@ -66,7 +66,9 @@ export class WeekComponent implements OnInit, OnDestroy {
     this.highlightDayPicker();
     console.log(this.dateString);
     this.week = moment(this.dateString, "YYYY-MM-DD").week();
-    this.year = this.date.getFullYear();    
+    this.year = this.date.getFullYear();
+    const closestMonday = this.dateService.getClosestMonday(new Date(this.dateString));
+    this.bookingService.getBookingsByWeek(new Date(this.dateService.fillInDateString(new Date(closestMonday))));
   }
 
   highlightDayPicker() {

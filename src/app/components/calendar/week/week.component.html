@@ -19,21 +19,24 @@
           </div>
         </div>
 
-        <div class="wrapper">
-          <div class="one week">{{year}} - Week {{week}}
-            <br/>
-            <div class="navweek">
-              <div class="btn-group-vertical">
-                  <button (click)="disableMobileDays(); showMonday = true;" [ngClass]="{ 'active' : showMonday }" type="button" class="btn btn-danger">Monday</button>
-                  <button (click)="disableMobileDays(); showTuesday = true;" [ngClass]="{ 'active' : showTuesday }" type="button" class="btn btn-danger">Tuesday</button>
-                  <button (click)="disableMobileDays(); showWednesday = true;" [ngClass]="{ 'active' : showWednesday }" type="button" class="btn btn-danger">Wednesday</button>
-                  <button (click)="disableMobileDays(); showThursday = true;" [ngClass]="{ 'active' : showThursday }" type="button" class="btn btn-danger">Thursday</button>
-                  <button (click)="disableMobileDays(); showFriday = true;" [ngClass]="{ 'active' : showFriday }" type="button" class="btn btn-danger">Friday</button>
-                  <button (click)="disableMobileDays(); showSaterday = true;" [ngClass]="{ 'active' : showSaterday }" type="button" class="btn btn-danger">Saterday</button>
-                  <button (click)="disableMobileDays(); showSunday = true;" [ngClass]="{ 'active' : showSunday }" type="button" class="btn btn-danger">Sunday</button>
+        <div class="row">
+          <div class="col-4">
+            <div class="week">{{year}} - Week {{week}}
+              <br/>
+              <div class="navweek">
+                <div class="btn-group-vertical">
+                    <button (click)="disableMobileDays(); showMonday = true;" [ngClass]="{ 'active' : showMonday }" type="button" class="btn btn-danger">Monday</button>
+                    <button (click)="disableMobileDays(); showTuesday = true;" [ngClass]="{ 'active' : showTuesday }" type="button" class="btn btn-danger">Tuesday</button>
+                    <button (click)="disableMobileDays(); showWednesday = true;" [ngClass]="{ 'active' : showWednesday }" type="button" class="btn btn-danger">Wednesday</button>
+                    <button (click)="disableMobileDays(); showThursday = true;" [ngClass]="{ 'active' : showThursday }" type="button" class="btn btn-danger">Thursday</button>
+                    <button (click)="disableMobileDays(); showFriday = true;" [ngClass]="{ 'active' : showFriday }" type="button" class="btn btn-danger">Friday</button>
+                    <button (click)="disableMobileDays(); showSaterday = true;" [ngClass]="{ 'active' : showSaterday }" type="button" class="btn btn-danger">Saterday</button>
+                    <button (click)="disableMobileDays(); showSunday = true;" [ngClass]="{ 'active' : showSunday }" type="button" class="btn btn-danger">Sunday</button>
+                </div>
               </div>
             </div>
           </div>
+          <div class="col-8">
             <div [ngClass]="{ 'hidden' : !showMonday }" class="mobile-monday" >
                 <app-day-overview [bookings]="weekOverview[0] ? weekOverview[0] : []"></app-day-overview>
             </div>
@@ -55,12 +58,9 @@
             <div [ngClass]="{ 'hidden' : !showSunday }" class="mobile-sunday">
                 <app-day-overview [bookings]="weekOverview[6] ? weekOverview[6] : []"></app-day-overview>
             </div>
-
-            <div class="blank">
-            </div>
-            <div class="blank2">
-            </div>
+          </div>
         </div>
+
 
         <div class="wrapper-header">
           <div class="one-header">Monday</div>
