@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, URLSearchParams } from '@angular/http';
 import { environment } from '../../environments/environment';
 import {Subject} from 'rxjs/Subject';
-import {StaffMember} from "../models/staffMember";
+import {StaffMember} from '../models/staffMember';
 
 @Injectable()
 export class StaffMemberService {
   private headers = new Headers({ 'Content-Type' : 'application/json'});
   private staffMemberUrl = environment.serverUrl + '/staffmembers';
+  public staffMemberSubject = new Subject<StaffMember[]>();
+  private staffMembers: StaffMember[] = [];
 
 
   constructor(private http: Http) {}
@@ -19,23 +21,22 @@ export class StaffMemberService {
 
   //NOTE: Deze functie is niet getest!!!
   public getStaffMembers() {
-    return this.http.get(this.staffMemberUrl, {headers: this.headers})
+    this.http.get(this.staffMemberUrl, {headers: this.headers})
       .toPromise()
       .then((response) => {
-        //this.staffmembers = response.json() as StaffMember[];
-        //this.staffMembersChanged.next(this.staffmembers.slice());
+        this.staffMembers = response.json() as StaffMember[];
+        this.staffMemberSubject.next(this.staffMembers.slice());
       })
       .catch((error) => {
         return this.handleError(error);
       });
   }
 
-  //NOTE: Deze functie is niet getest!!!
   public getStaffMember() {
     return this.http.get(this.staffMemberUrl, {headers: this.headers})
       .toPromise()
       .then((response) => {
-        //return response.json();
+        return response.json();
       })
       .catch((error) => {
         return this.handleError(error);
@@ -49,6 +50,11 @@ export class StaffMemberService {
 
       })
       .catch(error => {
+
+  public deleteStaffMember(id: number) {
+    return this.http.delete(this.staffMemberUrl + '/' + id, { headers: this.headers })
+      .toPromise()
+      .catch((error) => {
         return this.handleError(error);
       })
   }

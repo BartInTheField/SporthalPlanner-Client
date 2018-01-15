@@ -58,7 +58,16 @@ import {StaffMemberService} from "./services/staffmember.service";
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [NavbarService, BookingService, OpeningHoursService, AuthService, ClosingDaysService, DateService, CustomerService, StaffMemberService],
+  providers: [
+    NavbarService, 
+    BookingService,
+    OpeningHoursService, 
+    AuthService,
+    ClosingDaysService, 
+    DateService,
+    CustomerService, 
+    StaffMemberService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
