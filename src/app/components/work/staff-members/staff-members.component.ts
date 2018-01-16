@@ -1,34 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { StaffMember } from '../../../models/staffMember';
+import {Subscription} from 'rxjs/Subscription';
+import {StaffMemberService} from '../../../services/staffmember.service';
 
 @Component({
   selector: 'app-staff-members',
   templateUrl: './staff-members.component.html',
   styleUrls: ['./staff-members.component.scss']
 })
-export class StaffMembersComponent implements OnInit {
-  private staffMembers = [
-    new StaffMember(
-      1,
-      "Rick",
-      "Voermans",
-      new Date()),
-    new StaffMember(
-      2,
-      "Felix",
-      "Boons",
-      new Date()
-    )
-  ];
+export class StaffMembersComponent implements OnInit, OnDestroy {
+  private staffMemberSubscription: Subscription;
+  private staffMembers = [];
 
-  constructor() { }
+  constructor(private staffMemberService: StaffMemberService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.staffMemberSubscription = this.staffMemberService.staffMemberSubject
+      .subscribe((next: StaffMember[]) => {
+        this.staffMembers = next;
+    });
+    this.staffMemberService.getStaffMembers();
+    console.log(this.staffMembers);
+  }
+
+  ngOnDestroy(): void {
+    this.staffMemberSubscription.unsubscribe();
   }
 
   onDelete(member: StaffMember) {
     console.log('Deleting ' + member.firstName + ' ' + member.lastName + '...');
-    //this.staffMemberService.deleteStaffMember();
+    this.staffMemberService.deleteStaffMember(member._id)
+      .then();
     let i = this.staffMembers.indexOf(member);
     this.staffMembers.splice(i,1);
   }
