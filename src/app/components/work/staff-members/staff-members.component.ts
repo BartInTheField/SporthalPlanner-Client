@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import { StaffMember } from '../../../models/staffMember';
+import { StaffMember } from '../../../models/staffmember.model';
 import {Subscription} from 'rxjs/Subscription';
 import {StaffMemberService} from '../../../services/staffmember.service';
 
@@ -31,6 +31,7 @@ export class StaffMembersComponent implements OnInit, OnDestroy {
     console.log('Deleting ' + member.firstName + ' ' + member.lastName + '...');
     this.staffMemberService.deleteStaffMember(member._id)
       .then();
+    console.log(member._id);
     let i = this.staffMembers.indexOf(member);
     this.staffMembers.splice(i,1);
   }
