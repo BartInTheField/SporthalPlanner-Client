@@ -30,6 +30,7 @@ import { CustomersComponent } from './components/customers/customers.component';
 import { AddMemberComponent } from './components/work/add-member/add-member.component';
 import { StaffMembersComponent } from './components/work/staff-members/staff-members.component';
 import {StaffMemberService} from "./services/staffmember.service";
+import { AddPlanningComponent } from './components/work/add-planning/add-planning.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {StaffMemberService} from "./services/staffmember.service";
     DayOverviewComponent,
     CustomersComponent,
     AddMemberComponent,
-    StaffMembersComponent
+    StaffMembersComponent,
+    AddPlanningComponent
   ],
   imports: [
     BrowserModule,
