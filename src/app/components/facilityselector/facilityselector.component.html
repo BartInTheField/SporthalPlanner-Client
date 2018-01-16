@@ -1,14 +1,17 @@
-<ul>
-  <li *ngFor="let facility of sportsfacilities">
+<div class="col-md-6">
+  <br>
+  <b style="">Selecteer een van je sportsfacilities.</b>
+  <br>
+  <br>
+    <ul style="list-style-type: none; padding-left: 0;">
+      <li *ngFor="let facility of sportsfacilities">
 
-    <a class="list-group-item" (click)="onFacilitySelected(facility)">
-      <div>
-        <p>{{facility.name}}</p>
-        <p>{{facility.address}}</p>
-        <p>{{facility.city}}</p>
-        <p>{{facility._id}}</p>
-      </div>
-    </a>
+        <a style="cursor: pointer" class="list-group-item" (click)="onFacilitySelected(facility)">
+          <div>
+            <h6>{{facility.name}} | {{facility.address}} | {{facility.city}}</h6>
+          </div>
+        </a>
 
-  </li>
-</ul>
+      </li>
+    </ul>
+</div>

@@ -15,6 +15,7 @@ export class FacilityselectorComponent implements OnInit {
   constructor(private router:Router,private sportsfacilityService: SportsFacilityService, private authService: AuthService) { }
 
   ngOnInit() {
+    this.authService.setFacilityId(null);
     this.sportsfacilityService.getFacilities()
       .then(res => {
         this.sportsfacilities = res;

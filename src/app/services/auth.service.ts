@@ -41,6 +41,10 @@ export class AuthService {
     return this.user;
   }
 
+  getUserId(){
+    return this.user.Id;
+  }
+
   private errorHandler(error: any): Promise<any> {
     return Promise.reject(error.message || error);
   }
