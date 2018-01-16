@@ -1,0 +1,27 @@
+<div class="add-member">
+  <h5>
+    Voeg personeelslid toe:
+  </h5>
+</div>
+<div class="member-form card">
+  <form [formGroup]="addmemberForm" class="card-body">
+    <div class="form-group">
+      <label for="firstName">First name</label>
+      <textarea rows="1" type="text" id="firstName" formControlName="firstName" class="form-control">
+      </textarea>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last name</label>
+      <textarea rows="1" type="text" id="lastName" formControlName="lastName" class="form-control">
+      </textarea>
+    </div>
+    <div class="form-group">
+      <label for="dateOfBirth">Birth date:</label>
+      <input type="date" id="dateOfBirth" formControlName="dateOfBirth" class="form-control">
+    </div>
+    <button (click)="onAddStaffMember()" [disabled]="!addmemberForm.valid" class="btn-primary">
+      Voeg personeelslid toe
+    </button>
+  </form>
+</div>
+
