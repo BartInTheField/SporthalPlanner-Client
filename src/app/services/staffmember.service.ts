@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, URLSearchParams } from '@angular/http';
 import { environment } from '../../environments/environment';
 import {Subject} from 'rxjs/Subject';
-import {StaffMember} from '../models/staffMember';
+import {StaffMember} from '../models/staffmember.model';
 
 @Injectable()
 export class StaffMemberService {
@@ -54,7 +54,7 @@ export class StaffMemberService {
       });
   }
 
-  public deleteStaffMember(id: number) {
+  public deleteStaffMember(id: string) {
     return this.http.delete(this.staffMemberUrl + '/' + id, { headers: this.headers })
       .toPromise()
       .catch((error) => {

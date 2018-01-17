@@ -31,6 +31,7 @@ import { AddMemberComponent } from './components/work/add-member/add-member.comp
 import { StaffMembersComponent } from './components/work/staff-members/staff-members.component';
 import {StaffMemberService} from "./services/staffmember.service";
 import { AddPlanningComponent } from './components/work/add-planning/add-planning.component';
+import { PlanningComponent } from './components/work/planning/planning.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { AddPlanningComponent } from './components/work/add-planning/add-plannin
     CustomersComponent,
     AddMemberComponent,
     StaffMembersComponent,
-    AddPlanningComponent
+    AddPlanningComponent,
+    PlanningComponent
   ],
   imports: [
     BrowserModule,
@@ -61,13 +63,13 @@ import { AddPlanningComponent } from './components/work/add-planning/add-plannin
     ReactiveFormsModule
   ],
   providers: [
-    NavbarService, 
+    NavbarService,
     BookingService,
-    OpeningHoursService, 
+    OpeningHoursService,
     AuthService,
-    ClosingDaysService, 
+    ClosingDaysService,
     DateService,
-    CustomerService, 
+    CustomerService,
     StaffMemberService
   ],
   bootstrap: [AppComponent]
