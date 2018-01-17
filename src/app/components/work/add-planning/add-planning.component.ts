@@ -24,16 +24,16 @@ export class AddPlanningComponent implements OnInit, OnDestroy {
     this.staffMemberService.getStaffMembers();
 
     this.addPlanningForm = new FormGroup({
-      'staffMember': new FormControl('', {
+      /*'staffMember': new FormControl('', {
         validators: Validators.required, updateOn: 'change'
-      }),
+      }),*/
       'day': new FormControl('', {
         validators: Validators.required, updateOn: 'change'
       }),
-      'startingTime': new FormControl('', {
+      'startingtime': new FormControl('', {
         validators: Validators.required, updateOn: 'change'
       }),
-      'endingTime': new FormControl('', {
+      'endingtime': new FormControl('', {
         validators: Validators.required, updateOn: 'change'
       }),
     });
