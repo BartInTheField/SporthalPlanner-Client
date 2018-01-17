@@ -2,9 +2,9 @@
   <div class="card-body">
     <h5 class="card-title">Voeg planning toe</h5>
 
-    <form [formGroup]="addmemberForm">
+    <form [formGroup]="addPlanningForm">
       <div class="form-group">
-      <label for="staffMember">Personeelslid</label>
+        <label for="staffMember">Personeelslid</label>
         <select name="staffMember" id="staffMember" class="form-control">
           <option value="" selected disabled hidden>Kies personeelslid</option>
           <option *ngFor="let member of staffMembers" value="member.id">
@@ -24,7 +24,9 @@
         <label for="endingTime">Eindtijd</label>
         <input type="time" id="endingTime" formControlName="endingTime" class="form-control" />
       </div>
-      <button (click)="onAddPlanning()" [disabled]="!addPlanningForm.valid" class="btn btn-success">
+      <button (click)="onAddPlanning()"
+              [disabled]="!addPlanningForm.valid"
+              class="btn btn-success">
         Voeg toe
       </button>
     </form>
