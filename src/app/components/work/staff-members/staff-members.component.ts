@@ -30,7 +30,7 @@ export class StaffMembersComponent implements OnInit, OnDestroy {
     console.log('Deleting ' + member.firstName + ' ' + member.lastName + '...');
     this.staffMemberService.deleteStaffMember(member.id)
       .then();
-    console.log(member._id);
+    console.log(member.id);
     let i = this.staffMembers.indexOf(member);
     this.staffMembers.splice(i,1);
   }

@@ -1,8 +1,8 @@
 import {Component, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {StaffMember} from '../../../models/staffMember';
 import {StaffMemberService} from '../../../services/staffmember.service';
 import {Subscription} from 'rxjs/Subscription';
+import {StaffMember} from '../../../models/staffmember.model';
 
 @Component({
   selector: 'app-add-planning',
