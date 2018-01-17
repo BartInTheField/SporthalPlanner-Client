@@ -4,6 +4,7 @@ import { environment } from '../../environments/environment';
 import {Booking} from '../models/booking.model';
 import {Subject} from 'rxjs/Subject';
 import { DateService } from './date.service';
+import {AuthService} from "./auth.service";
 
 @Injectable()
 export class BookingService {
@@ -17,7 +18,7 @@ export class BookingService {
   weekOverviewChanged = new Subject<any[]>();
   private weekOverview = [];
 
-  constructor(private http: Http, private dateService: DateService) {}
+  constructor(private authService: AuthService,private http: Http, private dateService: DateService) {}
 
   private handleError(error: any): Promise<any> {
     console.log('handleError');
@@ -45,9 +46,9 @@ export class BookingService {
         console.log(rejected);
       });
   }
-  
+
   getBookingsByDate(date: Date){
-    this.http.get(this.dayOverviewUrl+'/1/1/'+this.dateService.fillInDateString(date,true), {headers: this.headers})
+    this.http.get(this.dayOverviewUrl+'/'+this.authService.getUserId()+'/'+this.authService.getFacilityId()+'/'+this.dateService.fillInDateString(date,true), {headers: this.headers})
       .toPromise()
       .then((response) => {
         console.log(response.json());
@@ -60,7 +61,7 @@ export class BookingService {
   }
 
   getBookingsByWeek(date: Date){
-    this.http.get(this.weekOverviewUrl+'/1/1/'+this.dateService.fillInDateString(date,true), {headers: this.headers})
+    this.http.get(this.weekOverviewUrl+'/'+this.authService.getUserId()+'/'+this.authService.getFacilityId()+'/'+this.dateService.fillInDateString(date,true), {headers: this.headers})
       .toPromise()
       .then((response) => {
         this.weekOverview = response.json() as [Booking[]];

@@ -10,6 +10,7 @@ import {DateService} from '../../../services/date.service';
 import {Customer} from '../../../models/customer.model';
 import {Subject} from 'rxjs/Subject';
 import {Subscription} from 'rxjs/Subscription';
+import {AuthService} from "../../../services/auth.service";
 
 @Component({
   selector: 'app-closingdays',
@@ -20,14 +21,15 @@ export class ClosingdaysComponent implements OnInit {
   private closingdaysForm: FormGroup;
   private closingdays: ClosingDay[];
   private closingday: ClosingDay;
-  private id: string = '5a57313ea2f37c265c4326db';
+  private id: string;
   private weekNumber;
 
-  constructor(private closingDaysService: ClosingDaysService) { }
+  constructor(private authService:AuthService,private closingDaysService: ClosingDaysService) { }
 
   ngOnInit() {
     this.initForm();
     this.getClosingDays();
+    this.id = this.authService.getFacilityId();
   }
 
   private initForm(){

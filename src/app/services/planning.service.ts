@@ -14,8 +14,8 @@ export class PlanningService {
 
   constructor(private http: Http) {}
 
-  //GET Request see whole planning from 1 facility
-  public getPlanningFromFacility(facilityId: string = 'HIER MOET EEN FACILITY ID') {
+  //GET Request see whole planning from 1 facility:
+  public getPlanningFromFacility(facilityId: string = '5a573790ef7ac53314281a2b') {
       this.http.get(this.planningUrl + 'sportsfacilities/' + facilityId, {headers: this.headers})
         .toPromise()
         .then((response) => {
@@ -27,7 +27,8 @@ export class PlanningService {
         });
   }
 
-  public getPlanningFromStaffMember(staffmemberId: string = 'HIER MOET EEN STAFFMEMBER ID'){
+  //GET Request see planning from 1 staffmember:
+  public getPlanningFromStaffMember(staffmemberId: string = '5a5cb44a4df97f2d084c63b1'){
       this.http.get(this.planningUrl + 'staffmembers/' + staffmemberId, {headers: this.headers})
         .toPromise()
         .then((response) => {

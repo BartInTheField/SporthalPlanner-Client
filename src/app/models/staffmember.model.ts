@@ -1,15 +1,14 @@
 import * as moment from "moment";
-import _date = moment.unitOfTime._date;
 
 export class StaffMember {
 
-  constructor(private id: string,
+  constructor(private _id: string,
               private _firstName: string,
               private _lastName: string,
               private _dateOfBirth: Date) {}
 
-  get _id(): string {
-    return this.id;
+  get id(): string {
+    return this._id;
   }
 
   get firstName(): string {

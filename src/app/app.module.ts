@@ -2,10 +2,8 @@ import { CustomerService } from './services/customer.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
-
 import { AppComponent } from './app.component';
 import { BookingService } from './services/booking.service';
-
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BarComponent } from './components/bar/bar.component';
 import { NavbarService } from './services/navbar.service';
@@ -27,10 +25,14 @@ import { WeekComponent } from './components/calendar/week/week.component';
 import { DayOverviewComponent } from './components/calendar/day/day-overview/day-overview.component';
 import { DateService } from './services/date.service';
 import { CustomersComponent } from './components/customers/customers.component';
+import { FacilityselectorComponent } from './components/facilityselector/facilityselector.component';
+import {SportsFacilityService} from "./services/sportsfacility.service";
 import { AddMemberComponent } from './components/work/add-member/add-member.component';
 import { StaffMembersComponent } from './components/work/staff-members/staff-members.component';
 import {StaffMemberService} from "./services/staffmember.service";
 import {PlanningService} from "./services/planning.service";
+import { AddPlanningComponent } from './components/work/add-planning/add-planning.component';
+import { PlanningComponent } from './components/work/planning/planning.component';
 
 @NgModule({
   declarations: [
@@ -49,8 +51,11 @@ import {PlanningService} from "./services/planning.service";
     WeekComponent,
     DayOverviewComponent,
     CustomersComponent,
+    FacilityselectorComponent,
     AddMemberComponent,
-    StaffMembersComponent
+    StaffMembersComponent,
+    AddPlanningComponent,
+    PlanningComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +64,7 @@ import {PlanningService} from "./services/planning.service";
     FormsModule,
     ReactiveFormsModule
   ],
+
   providers: [
     NavbarService,
     BookingService,
@@ -68,6 +74,7 @@ import {PlanningService} from "./services/planning.service";
     DateService,
     CustomerService,
     StaffMemberService,
+    SportsFacilityService,
     PlanningService
   ],
   bootstrap: [AppComponent]

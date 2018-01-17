@@ -8,6 +8,7 @@ import {Injectable} from "@angular/core";
 export class AuthService {
   user: User;
   token: string = null;
+  sportsfacilityId: string = null;
 
   constructor(private http: Http) { }
 
@@ -18,9 +19,9 @@ export class AuthService {
         .then(res => {
           if(res.status = 200){
 
-            this.user = res.json() as User;
             let token = JSON.parse(res.text());
             this.token = token['token'];
+            this.user = user;
 
             console.log(this.token);
 
@@ -40,11 +41,27 @@ export class AuthService {
     return this.user;
   }
 
+  getUserId(){
+    return this.user.Id;
+  }
+
   private errorHandler(error: any): Promise<any> {
     return Promise.reject(error.message || error);
   }
 
   isAuthenticated(){
     return this.token != null;
+  }
+
+  selectedASportsFacility(){
+    return this.sportsfacilityId != null;
+  }
+
+  setFacilityId(id: string){
+    this.sportsfacilityId = id;
+  }
+
+  getFacilityId(){
+    return this.sportsfacilityId;
   }
 }

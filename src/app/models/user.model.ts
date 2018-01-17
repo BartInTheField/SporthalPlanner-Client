@@ -1,6 +1,6 @@
 export class User {
 
-    constructor(private id: string, private email: string, private userName: string) {}
+    constructor(private id: string, private Email: string, private Username: string) {}
 
     public get Id() : string {
         return this.id;
@@ -8,19 +8,19 @@ export class User {
     public set Id(v : string) {
         this.id = v;
     }
-    
-    public get Email() : string {
-        return this.email;
+
+    public get email() : string {
+        return this.Email;
     }
-    public set Email(v : string) {
-        this.email = v;
+    public set email(v : string) {
+        this.Email = v;
     }
-    
-    public get UserName() : string {
-        return this.userName;
+
+    public get username() : string {
+        return this.Username;
     }
-    public set UserName(v : string) {
-        this.userName = v;
+    public set username(v : string) {
+        this.Username = v;
     }
-        
+
 }
