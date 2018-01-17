@@ -1,0 +1,19 @@
+<div class="col-md-6">
+  <br>
+  <h5>Welkom, {{user.username}}</h5>
+  <br>
+  <b style="">Selecteer een van je sportsfacilities.</b>
+  <br>
+  <br>
+    <ul style="list-style-type: none; padding-left: 0;">
+      <li *ngFor="let facility of sportsfacilities">
+
+        <a style="cursor: pointer" class="list-group-item" (click)="onFacilitySelected(facility)">
+          <div>
+            <h6>{{facility.name}} | {{facility.address}} | {{facility.city}}</h6>
+          </div>
+        </a>
+
+      </li>
+    </ul>
+</div>

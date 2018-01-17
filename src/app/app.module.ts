@@ -27,6 +27,8 @@ import { WeekComponent } from './components/calendar/week/week.component';
 import { DayOverviewComponent } from './components/calendar/day/day-overview/day-overview.component';
 import { DateService } from './services/date.service';
 import { CustomersComponent } from './components/customers/customers.component';
+import { FacilityselectorComponent } from './components/facilityselector/facilityselector.component';
+import {SportsFacilityService} from "./services/sportsfacility.service";
 import { AddMemberComponent } from './components/work/add-member/add-member.component';
 import { StaffMembersComponent } from './components/work/staff-members/staff-members.component';
 import {StaffMemberService} from "./services/staffmember.service";
@@ -50,6 +52,7 @@ import { PlanningComponent } from './components/work/planning/planning.component
     WeekComponent,
     DayOverviewComponent,
     CustomersComponent,
+    FacilityselectorComponent
     AddMemberComponent,
     StaffMembersComponent,
     AddPlanningComponent,
@@ -62,6 +65,7 @@ import { PlanningComponent } from './components/work/planning/planning.component
     FormsModule,
     ReactiveFormsModule
   ],
+
   providers: [
     NavbarService,
     BookingService,
@@ -70,7 +74,8 @@ import { PlanningComponent } from './components/work/planning/planning.component
     ClosingDaysService,
     DateService,
     CustomerService,
-    StaffMemberService
+    StaffMemberService,
+    SportsFacilityService
   ],
   bootstrap: [AppComponent]
 })

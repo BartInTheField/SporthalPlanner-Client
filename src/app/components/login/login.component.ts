@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
 import {User} from "../../models/user.model";
+import {NavbarService} from "../../services/navbar.service";
 
 @Component({
   selector: 'app-login',
@@ -12,12 +13,12 @@ import {User} from "../../models/user.model";
 export class LoginComponent implements OnInit {
   userForm: FormGroup;
   message: String = null;
+  navBarIsShowing: boolean;
 
   constructor(private router: Router,private authService: AuthService) { }
 
   ngOnInit() {
     this.onInit();
-
   }
 
   onInit(){
@@ -32,8 +33,7 @@ export class LoginComponent implements OnInit {
     this.authService.signinOperator(this.userForm.value)
       .then(res => {
         if(res == true){
-          this.router.navigate(['/home']);
-
+          this.router.navigate(['/facilityselector']);
         } else {
           this.message = 'Login failed, please try again';
         }
