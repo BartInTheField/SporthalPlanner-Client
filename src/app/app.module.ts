@@ -30,6 +30,7 @@ import { CustomersComponent } from './components/customers/customers.component';
 import { AddMemberComponent } from './components/work/add-member/add-member.component';
 import { StaffMembersComponent } from './components/work/staff-members/staff-members.component';
 import {StaffMemberService} from "./services/staffmember.service";
+import { AddPlanningComponent } from './components/work/add-planning/add-planning.component';
 import { PlanningComponent } from './components/work/planning/planning.component';
 
 @NgModule({
@@ -51,6 +52,7 @@ import { PlanningComponent } from './components/work/planning/planning.component
     CustomersComponent,
     AddMemberComponent,
     StaffMembersComponent,
+    AddPlanningComponent,
     PlanningComponent
   ],
   imports: [
