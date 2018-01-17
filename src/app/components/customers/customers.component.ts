@@ -27,7 +27,7 @@ export class CustomersComponent implements OnInit {
       this.customers = next;
       this.fillArrays();
       this.isLoading = false;
-    })
+    });
     this.customerService.getCustomers();
   }
 

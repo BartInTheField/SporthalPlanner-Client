@@ -29,6 +29,11 @@ import { DateService } from './services/date.service';
 import { CustomersComponent } from './components/customers/customers.component';
 import { FacilityselectorComponent } from './components/facilityselector/facilityselector.component';
 import {SportsFacilityService} from "./services/sportsfacility.service";
+import { AddMemberComponent } from './components/work/add-member/add-member.component';
+import { StaffMembersComponent } from './components/work/staff-members/staff-members.component';
+import {StaffMemberService} from "./services/staffmember.service";
+import { AddPlanningComponent } from './components/work/add-planning/add-planning.component';
+import { PlanningComponent } from './components/work/planning/planning.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +53,10 @@ import {SportsFacilityService} from "./services/sportsfacility.service";
     DayOverviewComponent,
     CustomersComponent,
     FacilityselectorComponent
+    AddMemberComponent,
+    StaffMembersComponent,
+    AddPlanningComponent,
+    PlanningComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +65,18 @@ import {SportsFacilityService} from "./services/sportsfacility.service";
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [NavbarService, BookingService, OpeningHoursService, AuthService, ClosingDaysService, DateService, CustomerService, SportsFacilityService],
+
+  providers: [
+    NavbarService,
+    BookingService,
+    OpeningHoursService,
+    AuthService,
+    ClosingDaysService,
+    DateService,
+    CustomerService,
+    StaffMemberService,
+    SportsFacilityService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

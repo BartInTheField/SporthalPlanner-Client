@@ -54,6 +54,8 @@ export class ClosingdaysComponent implements OnInit {
       this.closingday.sportsFacility = this.id;
       console.log(this.closingday._id);
 
+      this.closingdays.push(this.closingdaysForm.value);
+
       this.closingDaysService.addClosingDayToFacility(this.closingday);
       this.closingdaysForm = new FormGroup({
         'reason': new FormControl('',Validators.required),
@@ -68,8 +70,6 @@ export class ClosingdaysComponent implements OnInit {
       this.onAddPromise()
         .then(res => {
           if(res == true){
-            console.log('testtest');
-            this.getClosingDays();
           }
         })
   }
