@@ -1,4 +1,4 @@
-import {Component, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
+import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {StaffMemberService} from '../../../services/staffmember.service';
 import {Subscription} from 'rxjs/Subscription';
@@ -13,6 +13,8 @@ export class AddPlanningComponent implements OnInit, OnDestroy {
   private staffMemberSubscription: Subscription;
   private addPlanningForm: FormGroup;
   private staffMembers: StaffMember[] = [];
+
+  @Input() selectedMember: StaffMember = null;
 
   constructor(private staffMemberService: StaffMemberService) {}
 
@@ -30,10 +32,10 @@ export class AddPlanningComponent implements OnInit, OnDestroy {
       'day': new FormControl('', {
         validators: Validators.required, updateOn: 'change'
       }),
-      'startingtime': new FormControl('', {
+      'startingTime': new FormControl('', {
         validators: Validators.required, updateOn: 'change'
       }),
-      'endingtime': new FormControl('', {
+      'endingTime': new FormControl('', {
         validators: Validators.required, updateOn: 'change'
       }),
     });

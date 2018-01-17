@@ -1,8 +1,8 @@
-<div class="card">
+<div class="card mb-3 mt-4">
   <div class="card-body">
     <h4 class="card-title">Personeelsleden</h4>
     <div class="button-wrapper mb-3">
-      <button class="btn btn-success">Nieuw personeeslid</button>
+      <button class="btn btn-success" (click)="onNewMember()">Nieuw personeelslid</button>
     </div>
 
     <div class="card mb-3" *ngFor="let member of staffMembers">
@@ -13,7 +13,8 @@
             {{member.dateOfBirth |  date:'dd-MM-yyyy'}}
           </p>
           <button class="btn btn-danger" (click)="onDelete(member)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-          <button class="btn btn-info">Bekijk planning</button>
+          <button class="btn btn-info" (click)="onViewPlanning(member)">Bekijk planning</button>
+          <button class="btn btn-success" (click)="onNewPlanning(member)">Nieuwe planning</button>
         </div>
       </div>
     </div>

@@ -52,7 +52,7 @@ import { PlanningComponent } from './components/work/planning/planning.component
     WeekComponent,
     DayOverviewComponent,
     CustomersComponent,
-    FacilityselectorComponent
+    FacilityselectorComponent,
     AddMemberComponent,
     StaffMembersComponent,
     AddPlanningComponent,
