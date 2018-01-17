@@ -20,7 +20,6 @@ export class StaffMembersComponent implements OnInit, OnDestroy {
         this.staffMembers = next;
     });
     this.staffMemberService.getStaffMembers();
-    console.log(this.staffMembers);
   }
 
   ngOnDestroy(): void {
