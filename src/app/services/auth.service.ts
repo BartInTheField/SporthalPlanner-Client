@@ -19,9 +19,9 @@ export class AuthService {
         .then(res => {
           if(res.status = 200){
 
-            this.user = res.json() as User;
             let token = JSON.parse(res.text());
             this.token = token['token'];
+            this.user = user;
 
             console.log(this.token);
 
