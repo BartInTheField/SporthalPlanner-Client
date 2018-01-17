@@ -16,7 +16,11 @@
         <input type="date" id="dateOfBirth" formControlName="dateOfBirth" class="form-control">
       </div>
       <button (click)="onAddStaffMember()" [disabled]="!addmemberForm.valid" class="btn btn-success">
-        Voeg personeelslid toe
+        Opslaan
+      </button>
+      <button (click)="onCancel()"
+              class="btn btn-danger">
+        Annuleren
       </button>
     </form>
   </div>

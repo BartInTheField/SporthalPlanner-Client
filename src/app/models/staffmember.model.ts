@@ -1,14 +1,13 @@
-import * as moment from "moment";
 
 export class StaffMember {
 
-  constructor(private _id: string,
+  constructor(private id: string,
               private _firstName: string,
               private _lastName: string,
               private _dateOfBirth: Date) {}
 
-  get id(): string {
-    return this._id;
+  get _id(): string {
+    return this.id;
   }
 
   get firstName(): string {

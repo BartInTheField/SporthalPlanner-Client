@@ -29,7 +29,11 @@
       <button (click)="onAddPlanning()"
               [disabled]="!addPlanningForm.valid"
               class="btn btn-success">
-        Voeg toe
+        Opslaan
+      </button>
+      <button (click)="onCancel()"
+              class="btn btn-danger">
+        Annuleren
       </button>
     </form>
 

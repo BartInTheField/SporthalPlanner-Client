@@ -23,6 +23,10 @@ export class AddMemberComponent implements OnInit {
     });
   }
 
+  onCancel() {
+
+  }
+
   onAddStaffMember() {
     this.onAddPromise()
       .then(res => {

@@ -1,7 +1,7 @@
-<div class="card mb-3 mt-4">
+<div class="card mb-4 mt-4">
   <div class="card-body">
     <h4 class="card-title">Personeelsleden</h4>
-    <div class="button-wrapper mb-3">
+    <div class="mb-3">
       <button class="btn btn-success" (click)="onNewMember()">Nieuw personeelslid</button>
     </div>
 
@@ -9,12 +9,12 @@
       <div class="card-body">
         <div class="card-text">
           <p>
-            <strong>{{member.firstName + ' ' + member.lastName}}</strong> <br />
+            <strong>{{member.firstName + ' ' + member.lastName}}</strong><br />
             {{member.dateOfBirth |  date:'dd-MM-yyyy'}}
           </p>
           <button class="btn btn-danger" (click)="onDelete(member)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-          <button class="btn btn-info" (click)="onViewPlanning(member)">Bekijk planning</button>
           <button class="btn btn-success" (click)="onNewPlanning(member)">Nieuwe planning</button>
+          <button class="btn btn-info" (click)="onViewPlanning(member)">Bekijk planning</button>
         </div>
       </div>
     </div>

@@ -16,11 +16,11 @@ export class WorkComponent implements OnInit {
   ngOnInit() {
   }
 
-  onFormChanged(addingMembers: boolean) {
+  onOpenMemberForm(addingMembers: boolean) {
     this.addingMember = addingMembers;
   }
 
-  onPlanningFormChanged(addingPlanning: boolean) {
+  onOpenPlanningForm(addingPlanning: boolean) {
     this.addingPlanning = addingPlanning;
   }
 
