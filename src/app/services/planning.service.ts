@@ -3,6 +3,7 @@ import {Planning} from "../models/planning.model";
 import {environment} from "../../environments/environment";
 import {Http, Headers} from "@angular/http";
 import {Subject} from "rxjs/Subject";
+import {AuthService} from "./auth.service";
 
 @Injectable()
 export class PlanningService {
@@ -12,11 +13,11 @@ export class PlanningService {
   private planningUrl = environment.serverUrl + '/staffplannings/';
   public planningSubject = new Subject<Planning[]>();
 
-  constructor(private http: Http) {}
+  constructor(private http: Http,private authService:AuthService) {}
 
   //GET Request see whole planning from 1 facility:
-  public getPlanningFromFacility(facilityId: string = '5a573790ef7ac53314281a2b') {
-      this.http.get(this.planningUrl + 'sportsfacilities/' + facilityId, {headers: this.headers})
+  public getPlanningFromFacility() {
+      this.http.get(this.planningUrl + 'sportsfacilities/' + this.authService.getFacilityId(), {headers: this.headers})
         .toPromise()
         .then((response) => {
           this.wholePlanning = response.json() as Planning[];
@@ -28,7 +29,7 @@ export class PlanningService {
   }
 
   //GET Request see planning from 1 staffmember:
-  public getPlanningFromStaffMember(staffmemberId: string = '5a5cb44a4df97f2d084c63b1'){
+  public getPlanningFromStaffMember(staffmemberId: string){
       this.http.get(this.planningUrl + 'staffmembers/' + staffmemberId, {headers: this.headers})
         .toPromise()
         .then((response) => {

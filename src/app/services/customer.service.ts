@@ -5,6 +5,7 @@ import { Customer } from '../models/customer.model';
 import { Http, Headers, URLSearchParams } from '@angular/http';
 import { environment } from '../../environments/environment';
 import { PACKAGE_ROOT_URL } from '@angular/core/src/application_tokens';
+import {AuthService} from "./auth.service";
 
 
 @Injectable()
@@ -14,11 +15,11 @@ private serverUrl = environment.serverUrl + '/customers/';
 
   public customerSubject = new Subject<Customer[]>();
 
-  constructor(private http: Http) {
+  constructor(private http: Http,private authService:AuthService) {
   }
 
   public getCustomers() {
-    this.http.get(this.serverUrl + '1', {headers: this.headers})
+    this.http.get(this.serverUrl + this.authService.getUserId(), {headers: this.headers})
       .toPromise()
       .then((response) => {
           const customers: Customer[] = [];
@@ -38,7 +39,7 @@ private serverUrl = environment.serverUrl + '/customers/';
   }
 
   public postCustomer(firstName, lastName) {
-    const userId = '1';
+    const userId = this.authService.getUserId();
     const customer = {userId: userId, firstName: firstName, lastName: lastName};
     this.http.post(this.serverUrl, customer, {headers: this.headers})
     .toPromise()
