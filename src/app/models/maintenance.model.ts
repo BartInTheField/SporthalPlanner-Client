@@ -5,7 +5,7 @@ export class Maintenance {
   private _Subject: string;
   private _Materials: string;
   private _Reason: string;
-  private _SportsFacility: SportsFacility;
+  private _SportsFacility: string;
 
 
   get _id(): string {
@@ -16,43 +16,43 @@ export class Maintenance {
     this.id = value;
   }
 
-  get Days(): Date[] {
+  get days(): Date[] {
     return this._Days;
   }
 
-  set Days(value: Date[]) {
+  set days(value: Date[]) {
     this._Days = value;
   }
 
-  get Subject(): string {
+  get subject(): string {
     return this._Subject;
   }
 
-  set Subject(value: string) {
+  set subject(value: string) {
     this._Subject = value;
   }
 
-  get Materials(): string {
+  get materials(): string {
     return this._Materials;
   }
 
-  set Materials(value: string) {
+  set materials(value: string) {
     this._Materials = value;
   }
 
-  get Reason(): string {
+  get reason(): string {
     return this._Reason;
   }
 
-  set Reason(value: string) {
+  set reason(value: string) {
     this._Reason = value;
   }
 
-  get SportsFacility(): SportsFacility {
+  get sportsFacility(): string {
     return this._SportsFacility;
   }
 
-  set SportsFacility(value: SportsFacility) {
+  set sportsFacility(value: string) {
     this._SportsFacility = value;
   }
 }

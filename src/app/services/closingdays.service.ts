@@ -44,7 +44,7 @@ export class ClosingDaysService {
 
         this.daysClosedSubject.next(allDaysClosed);
 
-        this.closingdaysForOneFacility = this.allClosingdays.filter(x => x.sportsFacility == id);
+        this.closingdaysForOneFacility = this.allClosingdays.filter(x => x.sportsFacility === id);
         // this.daysClosedSubject.next(response.json());
 
         return this.closingdaysForOneFacility;

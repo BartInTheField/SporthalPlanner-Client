@@ -33,6 +33,8 @@ import {StaffMemberService} from "./services/staffmember.service";
 import {PlanningService} from "./services/planning.service";
 import { AddPlanningComponent } from './components/work/add-planning/add-planning.component';
 import { PlanningComponent } from './components/work/planning/planning.component';
+import { MaintenanceComponent } from './components/maintenance/maintenance.component';
+import {MaintenanceService} from "./services/maintenance.service";
 
 @NgModule({
   declarations: [
@@ -55,7 +57,8 @@ import { PlanningComponent } from './components/work/planning/planning.component
     AddMemberComponent,
     StaffMembersComponent,
     AddPlanningComponent,
-    PlanningComponent
+    PlanningComponent,
+    MaintenanceComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +78,7 @@ import { PlanningComponent } from './components/work/planning/planning.component
     CustomerService,
     StaffMemberService,
     SportsFacilityService,
+    MaintenanceService,
     PlanningService
   ],
   bootstrap: [AppComponent]
