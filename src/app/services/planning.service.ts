@@ -9,7 +9,7 @@ export class PlanningService {
   private wholePlanning: Planning[] = [];
   private memberPlanning: Planning[] = [];
   private headers = new Headers({ 'Content-Type' : 'application/json'});
-  private planningUrl = environment.serverUrl + '/planning/';
+  private planningUrl = environment.serverUrl + '/staffplannings/';
   public planningSubject = new Subject<Planning[]>();
 
   constructor(private http: Http) {}
