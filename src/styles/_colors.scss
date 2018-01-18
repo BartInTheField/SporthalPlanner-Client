@@ -1,7 +1,8 @@
 //Basic
-$primary: #f44336;
-$primaryDark: #d32f2f;
-$accent: #FF594C;
+$primary: #FFC76D;
+$primaryDark: #F8B132;
+$accent: rgb(250, 158, 0);
+// $highlight: #0DAAFF;
 $text: #263238;
 $background: #F5F5F5;
 
@@ -13,7 +14,9 @@ $highlight-date: #CFD8DC;
 
 
 //Navbar
-$shadowColor: #37474F;
+$shadowColor: rgb(128, 128, 128);
 $navIcon: #FAFAFA;
-$round: #b71c1c;
+$roundDisabled: rgb(108, 198, 247);
+$round: #0DAAFF;
+$roundDark: rgb(12, 138, 206);
 $outline: #FAFAFA;

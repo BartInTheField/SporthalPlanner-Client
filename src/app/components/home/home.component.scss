@@ -1,0 +1,19 @@
+@import '../../../styles/colors';
+
+.container {
+  margin-top: 5rem;
+}
+
+.center {
+  text-align: center;
+}
+
+.list-group-item {
+  transition: background 0.2s, color 0.2s;
+}
+
+.list-group-item:hover {
+  cursor: pointer;
+  color: white;
+  background: $round;
+}
