@@ -1,3 +1,5 @@
+@import '../../../../styles/misc';
+
 .wrapper {
   display: grid;
   grid-template-columns: repeat(auto, 14.2%);
@@ -104,6 +106,7 @@
 }
 
 .week{
+  font-family: $sportFont;
   font-size: 1.5rem;
   font-weight: bold;
   padding-left: 1rem;

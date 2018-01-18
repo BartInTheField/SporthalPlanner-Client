@@ -1,13 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'colors';
+@import 'misc';
 
 body {
+  font-family: $fontRegular;
   background-color: $background;
-    overflow-x:hidden;
+  overflow-x:hidden;
 }
 
 h1 {
-  color: $primary;
+  font-family: $sportFont;
+  color: $primaryDark;
+}
+h2 {
+  font-family: $sportFont;
+}
+h3 {
+  font-family: $sportFont;
+}
+h4 {
+  font-family: $sportFont;
+}
+h5{
+  font-family: $sportFont;
+}
+
+.btn-success {
+  background: $round;
+  border-color: $round;
+}
+
+.btn-success:focus {
+  background: $roundDark;
+  border-color: $roundDark;
+}
+
+.btn-success:disabled {
+  background: $roundDisabled;
+  border-color: $roundDisabled;
+}
+
+.btn-success:hover {
+  @extend .btn-success:focus
 }
 
 .btn:focus {
