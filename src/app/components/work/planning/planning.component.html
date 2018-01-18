@@ -5,8 +5,8 @@
       <div class="card-body">
         <div class="card-text">
           <div>
-            <p><strong>Hier komt de username</strong></p><br />
-            <p>{{plan.day | date:'DD-MM-YYYY'}}</p>
+            <p><strong>{{plan.staffMember.firstName + ' ' + plan.staffMember.lastName}} </strong></p><br />
+            <p>{{plan.day | date:'dd-MM-yyyy'}}</p>
             <p>Van {{plan.startingTime}} tot {{plan.endingTime}}</p>
           </div>
         </div>
