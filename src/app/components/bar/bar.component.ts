@@ -11,6 +11,8 @@ export class BarComponent implements OnInit {
 
   public showMenu = true;
 
+  public sportsFaclity: string;
+
   constructor(private authService: AuthService,private navbarService: NavbarService) { }
 
   ngOnInit() {
@@ -25,6 +27,7 @@ export class BarComponent implements OnInit {
 
   isAuth(){
     if(this.authService.isAuthenticated() == true && this.authService.selectedASportsFacility() == true){
+      this.sportsFaclity = this.authService.getFacility().name;
       return true;
     } else {
       return false;

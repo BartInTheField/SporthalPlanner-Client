@@ -1,3 +1,4 @@
+import { SportsFacility } from './../models/sportsFacility.model';
 import {Http} from "@angular/http";
 import {User} from "../models/user.model";
 import {toPromise} from "rxjs/operator/toPromise";
@@ -9,6 +10,7 @@ export class AuthService {
   user: User;
   token: string = null;
   sportsfacilityId: string = null;
+  sportsFacility: SportsFacility;
 
   constructor(private http: Http) { }
 
@@ -63,5 +65,13 @@ export class AuthService {
 
   getFacilityId(){
     return this.sportsfacilityId;
+  }
+
+  setFacility(facility: SportsFacility){
+    this.sportsFacility = facility;
+  }
+
+  getFacility(){
+    return this.sportsFacility;
   }
 }

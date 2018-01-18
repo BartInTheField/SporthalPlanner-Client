@@ -28,6 +28,7 @@ export class FacilityselectorComponent implements OnInit {
 
   onFacilitySelected(facility: SportsFacility){
     console.log('ID:'+facility._id);
+    this.authService.setFacility(facility);
     this.authService.setFacilityId(facility._id);
     this.router.navigate(['/home']);
   }
