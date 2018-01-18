@@ -3,7 +3,7 @@ import {Planning} from "../models/planning.model";
 import {environment} from "../../environments/environment";
 import {Http, Headers} from "@angular/http";
 import {Subject} from "rxjs/Subject";
-import {AuthService} from "./auth.service";
+import {AuthService} from './auth.service';
 
 @Injectable()
 export class PlanningService {
@@ -12,8 +12,10 @@ export class PlanningService {
   private headers = new Headers({ 'Content-Type' : 'application/json'});
   private planningUrl = environment.serverUrl + '/staffplannings/';
   public planningSubject = new Subject<Planning[]>();
+  private _showingAllPlannings: boolean = true;
 
-  constructor(private http: Http,private authService:AuthService) {}
+  constructor(private http: Http,
+              private authService: AuthService) {}
 
   //GET Request see whole planning from 1 facility:
   public getPlanningFromFacility() {
@@ -55,7 +57,8 @@ export class PlanningService {
     return this.http.post(this.planningUrl, planning)
       .toPromise()
       .then((response) => {
-        console.log(response);
+        // console.log(response);
+        this.getPlanningFromFacility();
       })
       .catch((error) => {
         return this.handleError(error);
@@ -64,7 +67,15 @@ export class PlanningService {
 
   //Handle error:
   private handleError(error: any): Promise<any> {
-    console.log('een error');
+    console.log('Error handler...');
     return Promise.reject(error.message || error);
+  }
+
+
+  get showingAllPlannings(): boolean {
+    return this._showingAllPlannings;
+  }
+  set showingAllPlannings(value: boolean) {
+    this._showingAllPlannings = value;
   }
 }

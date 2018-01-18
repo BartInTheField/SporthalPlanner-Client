@@ -1,13 +1,15 @@
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title">Voeg planning toe</h5>
+    <h4 class="card-title">Nieuwe planning</h4>
 
     <form [formGroup]="addPlanningForm">
       <div class="form-group">
         <label for="staffMember">Personeelslid</label>
         <select name="staffMember" id="staffMember" class="form-control">
-          <option value="" selected disabled hidden>Kies personeelslid</option>
-          <option *ngFor="let member of staffMembers" value="member.id">
+          <option *ngIf="selectedMember !== null" value="selectedMember" selected hidden>
+            {{ selectedMember.firstName + ' ' + selectedMember.lastName}}
+          </option>
+          <option *ngFor="let member of staffMembers" value="member" >
             {{ member.firstName + ' ' + member.lastName }}
           </option>
         </select>
@@ -27,9 +29,15 @@
       <button (click)="onAddPlanning()"
               [disabled]="!addPlanningForm.valid"
               class="btn btn-success">
-        Voeg toe
+        Opslaan
       </button>
+      <!--<button (click)="onCancel()"-->
+              <!--class="btn btn-danger">-->
+        <!--Annuleren-->
+      <!--</button>-->
     </form>
 
   </div>
 </div>
+
+

@@ -1,13 +1,26 @@
-<div class="card mb-4 mt-4">
+<div class="card mb-4 mt-4 mr-4">
   <div class="card-body">
     <h4 class="card-title">Planning</h4>
+    <div class="mb-3">
+      <button
+        class="btn btn-info"
+        (click)="onShowAllPlannings()"
+        [disabled]="!showingAllPlannings">Toon alle planningen</button>
+    </div>
     <div class="card mb-3" *ngFor="let plan of planning">
       <div class="card-body">
         <div class="card-text">
           <div>
-            <p><strong>{{plan.staffMember.firstName + ' ' + plan.staffMember.lastName}} </strong></p><br />
-            <p>{{plan.day | date:'dd-MM-yyyy'}}</p>
-            <p>Van {{plan.startingTime}} tot {{plan.endingTime}}</p>
+            <p><strong>{{plan.staffMember.firstName + ' ' + plan.staffMember.lastName}} </strong></p>
+            <div class="row">
+              <div class="col col-md-10">
+                Datum: {{plan.day | date:'dd-MM-yyyy'}}<br/>
+                Van {{plan.startingTime}} tot {{plan.endingTime}}
+              </div>
+              <div class="col">
+                <button class="btn btn-danger" (click)="onDelete(plan)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

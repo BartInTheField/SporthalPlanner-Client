@@ -33,6 +33,7 @@ import {StaffMemberService} from "./services/staffmember.service";
 import {PlanningService} from "./services/planning.service";
 import { AddPlanningComponent } from './components/work/add-planning/add-planning.component';
 import { PlanningComponent } from './components/work/planning/planning.component';
+import {PlanningTogglerService} from './services/planning-toggler.service';
 import { MaintenanceComponent } from './components/maintenance/maintenance.component';
 import {MaintenanceService} from "./services/maintenance.service";
 
@@ -78,8 +79,9 @@ import {MaintenanceService} from "./services/maintenance.service";
     CustomerService,
     StaffMemberService,
     SportsFacilityService,
-    MaintenanceService,
-    PlanningService
+    PlanningService,
+    PlanningTogglerService
+    MaintenanceService
   ],
   bootstrap: [AppComponent]
 })
