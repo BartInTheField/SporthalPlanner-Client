@@ -19,7 +19,7 @@ import {AuthService} from "../../../services/auth.service";
 })
 export class ClosingdaysComponent implements OnInit {
   private closingdaysForm: FormGroup;
-  private closingdays: ClosingDay[];
+  public closingdays: ClosingDay[];
   private closingday: ClosingDay;
   private id: string;
   private weekNumber;
@@ -28,8 +28,8 @@ export class ClosingdaysComponent implements OnInit {
 
   ngOnInit() {
     this.initForm();
-    this.getClosingDays();
     this.id = this.authService.getFacilityId();
+    this.getClosingDays();
   }
 
   private initForm(){
