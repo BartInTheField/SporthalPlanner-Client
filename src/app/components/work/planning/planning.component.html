@@ -1,5 +1,16 @@
-<div class="card">
+<div class="card mb-4 mt-4">
   <div class="card-body">
     <h4 class="card-title">Planning</h4>
+    <div class="card mb-3" *ngFor="let plan of planning">
+      <div class="card-body">
+        <div class="card-text">
+          <div>
+            <p><strong>{{plan.staffMember.firstName + ' ' + plan.staffMember.lastName}} </strong></p><br />
+            <p>{{plan.day | date:'dd-MM-yyyy'}}</p>
+            <p>Van {{plan.startingTime}} tot {{plan.endingTime}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

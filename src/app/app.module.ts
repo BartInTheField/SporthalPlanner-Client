@@ -2,10 +2,8 @@ import { CustomerService } from './services/customer.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
-
 import { AppComponent } from './app.component';
 import { BookingService } from './services/booking.service';
-
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BarComponent } from './components/bar/bar.component';
 import { NavbarService } from './services/navbar.service';
@@ -32,6 +30,7 @@ import {SportsFacilityService} from "./services/sportsfacility.service";
 import { AddMemberComponent } from './components/work/add-member/add-member.component';
 import { StaffMembersComponent } from './components/work/staff-members/staff-members.component';
 import {StaffMemberService} from "./services/staffmember.service";
+import {PlanningService} from "./services/planning.service";
 import { AddPlanningComponent } from './components/work/add-planning/add-planning.component';
 import { PlanningComponent } from './components/work/planning/planning.component';
 
@@ -75,7 +74,8 @@ import { PlanningComponent } from './components/work/planning/planning.component
     DateService,
     CustomerService,
     StaffMemberService,
-    SportsFacilityService
+    SportsFacilityService,
+    PlanningService
   ],
   bootstrap: [AppComponent]
 })

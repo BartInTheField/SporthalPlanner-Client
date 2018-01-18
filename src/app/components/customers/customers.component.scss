@@ -4,6 +4,18 @@
   padding-top: 2rem;
 }
 
+.nav-tabs {
+  background: white;
+}
+
+.nav-link.active {
+  color: $accent;
+}
+
+.nav-link.active:hover {
+  color: $accent;
+}
+
 .loader {
   border: 16px solid $highlight-date;
   border-top: 16px solid $primaryDark;
@@ -22,11 +34,10 @@
 }
 
 .delete {
-  margin-left: 0.5rem;
+  margin-left: 1.5rem;
 }
 
 .save {
   margin-top: 1rem;
-  margin-bottom: 1rem;
 }
 

@@ -44,7 +44,8 @@ export class WeekComponent implements OnInit, OnDestroy {
         console.log(this.weekOverview);
       });
 
-    this.bookingService.getBookingsByWeek(new Date(this.dateString));
+    const closestMonday = this.dateService.getClosestMonday(new Date(this.dateString));
+    this.bookingService.getBookingsByWeek(new Date(this.dateService.fillInDateString(new Date(closestMonday))));
   }
 
   ngOnDestroy() {
