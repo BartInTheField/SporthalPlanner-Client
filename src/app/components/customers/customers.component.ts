@@ -1,4 +1,4 @@
-
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Customer, CustomerMaker } from './../../models/customer.model';
 import { Subscription } from 'rxjs/Subscription';
 import { CustomerService } from '../../services/customer.service';
@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./customers.component.scss']
 })
 export class CustomersComponent implements OnInit {
+  public addCustomerForm: FormGroup;
 
   private customerSubscription: Subscription;
   private customers: Customer[];
@@ -18,11 +19,18 @@ export class CustomersComponent implements OnInit {
   public customersNonSporthalHuren: Customer[] = [];
 
   public isLoading: boolean = true;
-  public isAddingCustomer: boolean = false;
+
+  public isShowingSporthalHuren = false;
+  public isShowingNonSporthalHuren = true;
 
   constructor(private customerService: CustomerService) { }
 
   ngOnInit() {
+    this.addCustomerForm = new FormGroup({
+      'firstName': new FormControl('', Validators.required),
+      'lastName': new FormControl('', Validators.required)
+    });
+
     this.customerSubscription = this.customerService.customerSubject.subscribe((next: Customer[]) => {
       this.customers = next;
       this.fillArrays();

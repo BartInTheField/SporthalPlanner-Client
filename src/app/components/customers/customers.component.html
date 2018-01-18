@@ -1,24 +1,84 @@
 <div class="container">
   <div *ngIf="!isLoading">
-    <h2 *ngIf="customersSporthalHuren.length !== 0">Sporthal huren klanten</h2>
-    <div>
-      <p *ngFor="let customer of customersSporthalHuren">{{customer.sporthalHurenId}}</p>
+    <div class="row">
+      <div class="col-12 col-md-6">
+          <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <a style="cursor: pointer;" [ngClass]="{'active': isShowingNonSporthalHuren}" class="nav-link"
+                (click)="isShowingSporthalHuren = false; isShowingNonSporthalHuren = true;"
+                >Sporthalplanner</a>
+              </li>
+              <li class="nav-item">
+                  <a style="cursor: pointer;" [ngClass]="{'active': isShowingSporthalHuren}" class="nav-link"
+                  (click)="isShowingSporthalHuren = true; isShowingNonSporthalHuren = false;"
+                  >Sporthalhuren</a>
+                </li>
+            </ul>
+            <div *ngIf="isShowingSporthalHuren" class="card">
+              <div class="card-body">
+                <div class="card-text">
+                  <div *ngFor="let customer of customersSporthalHuren; let i = index;">
+                    <div class="card">
+                      <div class="card-body">
+                        <p>{{customer.sporthalHurenId}}</p>
+                      </div>
+                    </div>
+                    <br *ngIf="i !== customersSporthalHuren.length - 1"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="isShowingNonSporthalHuren" class="card">
+                <div class="card-body">
+                  <div class="card-text">
+                    <div *ngFor="let customer of customersNonSporthalHuren; let i = index;">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="card-text">
+                            <div class="row">
+                              <div class="col-10">
+                                {{customer.firstName}} {{customer.lastName}}
+                              </div>
+                              <div class="col-2">
+                                <button *ngIf="customer.id !== null" (click)="deleteCustomer(customer.id);" class="btn btn-danger btn-sm delete ">
+                                    <b class="fa fa-trash-o"></b>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <br *ngIf="i !== customersNonSporthalHuren.length - 1"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            <div>
+      </div>
     </div>
-    <h2>Overige klanten <button (click)="isAddingCustomer = !isAddingCustomer" class="btn btn-success btn-sm">+</button> </h2>
-    <div>
-      <form *ngIf="isAddingCustomer">
-        <input #first type="text" placeholder="First name">
-        <input #last type="text" placeholder="Last name">
-        <br/>
-        <button (click)="addCustomer(first.value, last.value); isAddingCustomer = !isAddingCustomer" class="btn btn-primary save">Save</button>
-      </form>
-      <p *ngFor="let customer of customersNonSporthalHuren">{{customer.firstName}} {{customer.lastName}}
-          <button *ngIf="customer.id !== null" (click)="deleteCustomer(customer.id);" class="btn btn-danger btn-sm delete ">
-              -
-          </button>
-      </p>
+    <div class="col-12 col-md-6">
+      <h2>Voeg een klant toe</h2>
+      <div class="card">
+        <div class="card-body">
+            <form [formGroup]="addCustomerForm" class="card-body">
+              <div class="form-group">
+                <label for="firstName">Voornaam</label>
+                <input #first type="text" id="firstName" formControlName="firstName" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="lastName">Achternaam</label>
+                <input #last type="text" id="lastName" formControlName="lastName" class="form-control">
+              </div>
+              <button (click)="addCustomer(first.value, last.value)" [disabled]="!addCustomerForm.valid" class="btn btn-success">
+                Voeg klant toe
+              </button>
+            </form>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div *ngIf="isLoading" class="loader"></div>
 </div>
+
+<div *ngIf="isLoading" class="loader"></div>
