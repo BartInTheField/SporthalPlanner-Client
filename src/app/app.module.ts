@@ -34,6 +34,8 @@ import { StaffMembersComponent } from './components/work/staff-members/staff-mem
 import {StaffMemberService} from "./services/staffmember.service";
 import { AddPlanningComponent } from './components/work/add-planning/add-planning.component';
 import { PlanningComponent } from './components/work/planning/planning.component';
+import { MaintenanceComponent } from './components/maintenance/maintenance.component';
+import {MaintenanceService} from "./services/maintenance.service";
 
 @NgModule({
   declarations: [
@@ -52,11 +54,12 @@ import { PlanningComponent } from './components/work/planning/planning.component
     WeekComponent,
     DayOverviewComponent,
     CustomersComponent,
-    FacilityselectorComponent
+    FacilityselectorComponent,
     AddMemberComponent,
     StaffMembersComponent,
     AddPlanningComponent,
-    PlanningComponent
+    PlanningComponent,
+    MaintenanceComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +78,8 @@ import { PlanningComponent } from './components/work/planning/planning.component
     DateService,
     CustomerService,
     StaffMemberService,
-    SportsFacilityService
+    SportsFacilityService,
+    MaintenanceService
   ],
   bootstrap: [AppComponent]
 })

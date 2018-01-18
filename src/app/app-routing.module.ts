@@ -10,6 +10,7 @@ import { CustomersComponent } from './components/customers/customers.component';
 import {AuthGuard} from "./services/auth-guard.service";
 import {FacilityselectorComponent} from "./components/facilityselector/facilityselector.component";
 import {AuthGuardSelectedFacility} from "./services/auth-guard-selectedfacility.service";
+import {MaintenanceComponent} from "./components/maintenance/maintenance.component";
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent, canActivate:[AuthGuardSelectedFacility]},
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
   { path: 'day', component: CalendarComponent, canActivate:[AuthGuardSelectedFacility]},
   { path: 'week', component: CalendarComponent, canActivate:[AuthGuardSelectedFacility]},
   { path: 'work', component: WorkComponent, canActivate:[AuthGuardSelectedFacility]},
+  { path: 'maintenance', component: MaintenanceComponent, canActivate:[AuthGuardSelectedFacility]},
   { path: 'time', component: TimeComponent, canActivate:[AuthGuardSelectedFacility]},
   { path: 'login', component: LoginComponent},
   { path: '**', redirectTo: 'login' }
