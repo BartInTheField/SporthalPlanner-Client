@@ -11,7 +11,7 @@ export class PlanningTogglerService {
     this.showingAllPlannings.next(this.allPlanningsShowed);
   }
 
-  public toggleNavbar() {
+  public toggleAllPlannings() {
     if (this.allPlanningsShowed) {
       this.allPlanningsShowed = false;
       this.showingAllPlannings.next(this.allPlanningsShowed);

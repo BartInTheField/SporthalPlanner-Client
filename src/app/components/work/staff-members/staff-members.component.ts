@@ -3,6 +3,7 @@ import { StaffMember } from '../../../models/staffmember.model';
 import {Subscription} from 'rxjs/Subscription';
 import {StaffMemberService} from '../../../services/staffmember.service';
 import {PlanningService} from '../../../services/planning.service';
+import {PlanningTogglerService} from '../../../services/planning-toggler.service';
 
 @Component({
   selector: 'app-staff-members',
@@ -19,12 +20,12 @@ export class StaffMembersComponent implements OnInit, OnDestroy {
   private addingPlanning: boolean = false;
   private addPlanningIsOpen: boolean = false;
   @Output() onMemberSelected = new EventEmitter<StaffMember>();
-  @Output() onMemberPlanningsShowing = new EventEmitter<boolean>();
-  private showingRelatedPlannings: boolean = false;
+  private showingAllPlannings: boolean = false;
 
 
   constructor(private staffMemberService: StaffMemberService,
-              private planningService: PlanningService) { }
+              private planningService: PlanningService,
+              private planningTogglerService: PlanningTogglerService) { }
 
   ngOnInit(): void {
     this.staffMemberSubscription = this.staffMemberService.staffMemberSubject
@@ -32,6 +33,11 @@ export class StaffMembersComponent implements OnInit, OnDestroy {
         this.staffMembers = next;
     });
     this.staffMemberService.getStaffMembers();
+
+    //Subscribe on planning toggler service
+    this.planningTogglerService.showingAllPlannings.subscribe(next => {
+      this.showingAllPlannings = next;
+    });
   }
 
   ngOnDestroy(): void {
@@ -67,9 +73,8 @@ export class StaffMembersComponent implements OnInit, OnDestroy {
 
   onViewPlanning(member: StaffMember) {
     this.planningService.getPlanningFromStaffMember(member._id);
-    if (this.showingRelatedPlannings === false) {
-      this.showingRelatedPlannings = !this.showingRelatedPlannings;
-      this.onMemberPlanningsShowing.emit(this.showingRelatedPlannings);
+    if (!this.showingAllPlannings) {
+      this.planningTogglerService.toggleAllPlannings();
     }
   }
 }

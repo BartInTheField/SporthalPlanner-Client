@@ -4,8 +4,7 @@
       <app-staff-members
         (onFormChanged)="onOpenMemberForm($event)"
         (onPlanningFormChanged)="onOpenPlanningForm($event)"
-        (onMemberSelected)="onMemberSelected($event)"
-        (onMemberPlanningsShowing)="onMemberPlanningsShowing($event)">
+        (onMemberSelected)="onMemberSelected($event)">
       </app-staff-members>
 
       <div *ngIf="addingPlanning">
@@ -19,8 +18,7 @@
     </div>
     <div class="col col-md-6">
       <app-planning
-        [showingMemberPlannings]="showingMemberPlannings"
-        (onShowingAllMembers)="onShowAllPlannings($event)"
+
       ></app-planning>
     </div>
   </div>

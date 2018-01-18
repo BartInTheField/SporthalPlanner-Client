@@ -29,16 +29,4 @@ export class WorkComponent implements OnInit {
     this.member = member;
   }
 
-  onMemberPlanningsShowing(showingMemberPlannings: boolean) {
-    this.showingMemberPlannings = showingMemberPlannings;
-    console.log('Through "bekijk planning"');
-    console.log('setting showingMemberPlannings to ' + this.showingMemberPlannings);
-  }
-
-  onShowAllPlannings() {
-    console.log('Through "Toon alle planningen"');
-    this.showingMemberPlannings = false;
-    console.log('setting showingMemberPlannings to ' + this.showingMemberPlannings);
-  }
-
 }
