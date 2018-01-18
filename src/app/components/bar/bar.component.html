@@ -1,8 +1,11 @@
 <div *ngIf="isAuth()">
   <div [ngClass]="{'full': showMenu}" class="bar full">
     <div [ngClass]="{'closeBtn': !showMenu}" class="menubtn" (click)="toggleNav()">
-      <b *ngIf="showMenu"   class="fa fa-bars"></b>
-      <b *ngIf="!showMenu"   class="fa fa-times"></b>
+      <b *ngIf="showMenu" class="fa fa-bars"></b>
+      <b *ngIf="!showMenu" class="fa fa-times"></b>
+    </div>
+    <div class="sportsfacility" routerLink="/facilityselector">
+      {{sportsFaclity}} <p class="fa fa-building icon"></p>
     </div>
   </div>
 </div>

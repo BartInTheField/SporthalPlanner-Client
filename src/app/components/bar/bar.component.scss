@@ -15,6 +15,24 @@
  transition: left $animationTime;
 }
 
+.sportsfacility {
+  right:2rem;
+  top: 0.5rem;
+  position: fixed;
+  color: white;
+  font-size: 1.10rem;
+  transition: 0.2s;
+}
+
+.icon {
+  margin-left: 0.5rem;
+}
+
+.sportsfacility:hover {
+  cursor: pointer;
+  color: $round;
+}
+
 
 b {
   color: $navIcon;

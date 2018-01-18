@@ -18,8 +18,8 @@ export class PlanningService {
               private authService: AuthService) {}
 
   //GET Request see whole planning from 1 facility:
-  public getPlanningFromFacility(facilityId: string = this.authService.getFacilityId()) {
-      this.http.get(this.planningUrl + 'sportsfacilities/' + facilityId, {headers: this.headers})
+  public getPlanningFromFacility() {
+      this.http.get(this.planningUrl + 'sportsfacilities/' + this.authService.getFacilityId(), {headers: this.headers})
         .toPromise()
         .then((response) => {
           this.wholePlanning = response.json() as Planning[];
@@ -31,7 +31,7 @@ export class PlanningService {
   }
 
   //GET Request see planning from 1 staffmember:
-  public getPlanningFromStaffMember(staffmemberId: string = '5a5cb44a4df97f2d084c63b1'){
+  public getPlanningFromStaffMember(staffmemberId: string){
       this.http.get(this.planningUrl + 'staffmembers/' + staffmemberId, {headers: this.headers})
         .toPromise()
         .then((response) => {

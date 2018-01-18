@@ -34,6 +34,8 @@ import {PlanningService} from "./services/planning.service";
 import { AddPlanningComponent } from './components/work/add-planning/add-planning.component';
 import { PlanningComponent } from './components/work/planning/planning.component';
 import {PlanningTogglerService} from './services/planning-toggler.service';
+import { MaintenanceComponent } from './components/maintenance/maintenance.component';
+import {MaintenanceService} from "./services/maintenance.service";
 
 @NgModule({
   declarations: [
@@ -56,7 +58,8 @@ import {PlanningTogglerService} from './services/planning-toggler.service';
     AddMemberComponent,
     StaffMembersComponent,
     AddPlanningComponent,
-    PlanningComponent
+    PlanningComponent,
+    MaintenanceComponent
   ],
   imports: [
     BrowserModule,
@@ -78,6 +81,7 @@ import {PlanningTogglerService} from './services/planning-toggler.service';
     SportsFacilityService,
     PlanningService,
     PlanningTogglerService
+    MaintenanceService
   ],
   bootstrap: [AppComponent]
 })

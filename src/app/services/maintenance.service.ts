@@ -1,20 +1,24 @@
 import {Injectable} from "@angular/core";
 import {Http} from "@angular/http";
 import {Maintenance} from "../models/maintenance.model";
+import {environment} from "../../environments/environment";
 
 @Injectable()
-export class maintenanceServer{
+export class MaintenanceService{
   private allMaintenance: Maintenance[];
+  private maintenanceForOneFacility: Maintenance[];
   private maintenance: Maintenance;
+  private maintenenceUrl = environment.serverUrl+'/maintenances/';
 
   constructor(private http:Http){}
 
-  getAllMaintenance(){
-    return this.http.get('')
+  getAllMaintenanceFromSingleFacility(facilityid: string){
+    return this.http.get(this.maintenenceUrl)
       .toPromise()
       .then(res => {
         this.allMaintenance = res.json() as Maintenance[];
-        return res.json() as Maintenance[];
+        this.maintenanceForOneFacility = this.allMaintenance.filter(x => x.sportsFacility === facilityid);
+        return this.maintenanceForOneFacility;
       })
       .catch(error => {
         return this.handleError(error);
@@ -22,7 +26,7 @@ export class maintenanceServer{
   }
 
   getSingleMaintenance(id:string){
-    return this.http.get(''+id)
+    return this.http.get(this.maintenenceUrl+id)
       .toPromise()
       .then(res => {
         this.maintenance = res.json() as Maintenance;
@@ -31,7 +35,7 @@ export class maintenanceServer{
   }
 
   postSingleMaintenance(maintenance:Maintenance){
-    return this.http.post('',maintenance)
+    return this.http.post(this.maintenenceUrl,maintenance)
       .toPromise()
       .then(res => {
         console.log('Post succesvol: '+res)

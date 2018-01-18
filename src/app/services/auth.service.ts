@@ -1,3 +1,4 @@
+import { SportsFacility } from './../models/sportsFacility.model';
 import {Http} from "@angular/http";
 import {User} from "../models/user.model";
 import {toPromise} from "rxjs/operator/toPromise";
@@ -9,6 +10,7 @@ export class AuthService {
   user: User;
   token: string = null;
   sportsfacilityId: string = null;
+  sportsFacility: SportsFacility;
 
   constructor(private http: Http) { }
 
@@ -19,11 +21,10 @@ export class AuthService {
         .then(res => {
           if(res.status = 200){
 
-            let token = JSON.parse(res.text());
-            this.token = token['token'];
-            this.user = user;
-
-            console.log(this.token);
+            let text = JSON.parse(res.text());
+            this.token = text['token'];
+            this.user = text['user'];
+            console.log('GEBRUIKERID: '+this.user._id);
 
             resolve(true);
           } else {
@@ -42,7 +43,7 @@ export class AuthService {
   }
 
   getUserId(){
-    return this.user.Id;
+    return this.user._id;
   }
 
   private errorHandler(error: any): Promise<any> {
@@ -63,5 +64,13 @@ export class AuthService {
 
   getFacilityId(){
     return this.sportsfacilityId;
+  }
+
+  setFacility(facility: SportsFacility){
+    this.sportsFacility = facility;
+  }
+
+  getFacility(){
+    return this.sportsFacility;
   }
 }

@@ -2,10 +2,10 @@ export class User {
 
     constructor(private id: string, private Email: string, private Username: string) {}
 
-    public get Id() : string {
+    public get _id() : string {
         return this.id;
     }
-    public set Id(v : string) {
+    public set _id(v : string) {
         this.id = v;
     }
 
