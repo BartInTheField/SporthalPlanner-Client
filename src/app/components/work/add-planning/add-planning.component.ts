@@ -1,8 +1,12 @@
-import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {StaffMemberService} from '../../../services/staffmember.service';
 import {Subscription} from 'rxjs/Subscription';
 import {StaffMember} from '../../../models/staffmember.model';
+import {PlanningService} from '../../../services/planning.service';
+import {Planning} from '../../../models/planning.model';
+import {SportsFacilityService} from '../../../services/sportsfacility.service';
+import {AuthService} from '../../../services/auth.service';
 
 @Component({
   selector: 'app-add-planning',
@@ -13,10 +17,14 @@ export class AddPlanningComponent implements OnInit, OnDestroy {
   private staffMemberSubscription: Subscription;
   private addPlanningForm: FormGroup;
   private staffMembers: StaffMember[] = [];
+  @Output() onClosingForm = new EventEmitter<boolean>();
+  private formClosed: boolean = false;
+  @Input() selectedMember: StaffMember;
 
-  @Input() selectedMember: StaffMember = null;
-
-  constructor(private staffMemberService: StaffMemberService) {}
+  constructor(private staffMemberService: StaffMemberService,
+              private planningService: PlanningService,
+              private facilityService: SportsFacilityService,
+              private authService: AuthService) {}
 
   ngOnInit(): void {
     this.staffMemberSubscription = this.staffMemberService.staffMemberSubject
@@ -46,12 +54,27 @@ export class AddPlanningComponent implements OnInit, OnDestroy {
   }
 
   onAddPlanning() {
-    // this.planningService.addStaffMember(this.addPlanningForm.value)
-    //   .then(() => {
-    console.log(this.addPlanningForm.value);
-      // })
+    // Create new planning
+    const planning = new Planning(
+      this.authService.getFacilityId(),
+      this.addPlanningForm.value.day,
+      this.addPlanningForm.value.startingTime,
+      this.addPlanningForm.value.endingTime,
+      this.authService.getFacilityId(),
+      this.selectedMember,
+      this.selectedMember._id);
+
+    //Send planning to server
+      this.planningService.addPlanningForStaffMember(planning)
+      .then((response) => {
+        console.log({ success: 'Planning added for staff member' })
+      })
+      .catch((error) => console.log(error));
+
+      this.addPlanningForm.reset();
   }
 
-
-
+  onCancel() {
+    this.onClosingForm.emit(!this.formClosed);
+  }
 }

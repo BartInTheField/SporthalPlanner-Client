@@ -6,10 +6,10 @@
       <div class="form-group">
         <label for="staffMember">Personeelslid</label>
         <select name="staffMember" id="staffMember" class="form-control">
-          <option *ngIf="selectedMember !== null" value="selectedMember.id" selected hidden>
+          <option *ngIf="selectedMember !== null" value="selectedMember" selected hidden>
             {{ selectedMember.firstName + ' ' + selectedMember.lastName}}
           </option>
-          <option *ngFor="let member of staffMembers" value="member.id" >
+          <option *ngFor="let member of staffMembers" value="member" >
             {{ member.firstName + ' ' + member.lastName }}
           </option>
         </select>
@@ -31,10 +31,10 @@
               class="btn btn-success">
         Opslaan
       </button>
-      <button (click)="onCancel()"
-              class="btn btn-danger">
-        Annuleren
-      </button>
+      <!--<button (click)="onCancel()"-->
+              <!--class="btn btn-danger">-->
+        <!--Annuleren-->
+      <!--</button>-->
     </form>
 
   </div>

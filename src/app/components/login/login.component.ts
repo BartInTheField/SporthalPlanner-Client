@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   }
 
   onInit(){
-    this.message = 'Please log in';
+    this.message = 'Inloggen';
     this.userForm = new FormGroup({
       'username':new FormControl('',Validators.required),
       'password':new FormControl('',Validators.required)
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
         if(res == true){
           this.router.navigate(['/facilityselector']);
         } else {
-          this.message = 'Login failed, please try again';
+          this.message = 'Inloggen gefaald, probeer het opnieuw.';
         }
       })
   }

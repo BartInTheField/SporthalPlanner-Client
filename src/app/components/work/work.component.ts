@@ -10,6 +10,7 @@ export class WorkComponent implements OnInit {
   addingMember: boolean = false;
   addingPlanning: boolean = false;
   member: StaffMember;
+  showingMemberPlannings: boolean = false;
 
   constructor() { }
 
@@ -26,6 +27,18 @@ export class WorkComponent implements OnInit {
 
   onMemberSelected(member: StaffMember) {
     this.member = member;
+  }
+
+  onMemberPlanningsShowing(showingMemberPlannings: boolean) {
+    this.showingMemberPlannings = showingMemberPlannings;
+    console.log('Through "bekijk planning"');
+    console.log('setting showingMemberPlannings to ' + this.showingMemberPlannings);
+  }
+
+  onShowAllPlannings() {
+    console.log('Through "Toon alle planningen"');
+    this.showingMemberPlannings = false;
+    console.log('setting showingMemberPlannings to ' + this.showingMemberPlannings);
   }
 
 }

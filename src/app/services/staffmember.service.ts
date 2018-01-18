@@ -19,7 +19,6 @@ export class StaffMemberService {
     return Promise.reject(error.message || error);
   }
 
-  //NOTE: Deze functie is niet getest!!!
   public getStaffMembers() {
     this.http.get(this.staffMemberUrl, {headers: this.headers})
       .toPromise()
@@ -47,6 +46,7 @@ export class StaffMemberService {
     return this.http.post(this.staffMemberUrl, staffmember)
       .toPromise()
       .then((response) => {
+        this.getStaffMembers();
 
       })
       .catch(error => {

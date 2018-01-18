@@ -1,21 +1,27 @@
 <div class="ml-4 mt-4">
   <div class="row">
-    <div class="col col-xs-6 spacing">
+    <div class="col col-md-6">
       <app-staff-members
         (onFormChanged)="onOpenMemberForm($event)"
         (onPlanningFormChanged)="onOpenPlanningForm($event)"
-        (onMemberSelected)="onMemberSelected($event)">
+        (onMemberSelected)="onMemberSelected($event)"
+        (onMemberPlanningsShowing)="onMemberPlanningsShowing($event)">
       </app-staff-members>
 
       <div *ngIf="addingPlanning">
-        <app-add-planning [selectedMember]="member"></app-add-planning>
+        <app-add-planning
+          [selectedMember]="member"
+        ></app-add-planning>
       </div>
       <div *ngIf="addingMember">
         <app-add-member></app-add-member>
       </div>
     </div>
-    <div class="col col-xs-6">
-      <app-planning></app-planning>
+    <div class="col col-md-6">
+      <app-planning
+        [showingMemberPlannings]="showingMemberPlannings"
+        (onShowingAllMembers)="onShowAllPlannings($event)"
+      ></app-planning>
     </div>
   </div>
 </div>

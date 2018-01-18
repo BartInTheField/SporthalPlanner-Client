@@ -7,8 +7,9 @@ export class Planning {
               private _day: Date,
               private _startingTime: string,
               private _endingTime: string,
-              private _sportsFacility: SportsFacility,
-              private _staffMember: StaffMember
+              private _sportsFacilityId: string,
+              private _staffMember: StaffMember,
+              private _staffMemberId: string
               ){}
 
   get _id(): string {
@@ -18,7 +19,6 @@ export class Planning {
   get day(): Date {
     return this._day;
   }
-
   set day(value: Date) {
     this._day = value;
   }
@@ -26,7 +26,6 @@ export class Planning {
   get startingTime(): string {
     return this._startingTime;
   }
-
   set startingTime(value: string) {
     this._startingTime = value;
   }
@@ -34,24 +33,28 @@ export class Planning {
   get endingTime(): string {
     return this._endingTime;
   }
-
   set endingTime(value: string) {
     this._endingTime = value;
   }
 
-  get sportsFacility(): SportsFacility {
-    return this._sportsFacility;
+  get sportsFacilityId(): string {
+    return this._sportsFacilityId;
   }
-
-  set sportsFacility(value: SportsFacility) {
-    this._sportsFacility = value;
+  set sportsFacilityId(value: string) {
+    this._sportsFacilityId = value;
   }
 
   get staffMember(): StaffMember {
     return this._staffMember;
   }
-
   set staffMember(value: StaffMember) {
     this._staffMember = value;
+  }
+
+  get staffMemberId(): string {
+    return this._staffMemberId;
+  }
+  set staffMemberId(value: string) {
+    this._staffMemberId = value;
   }
 }

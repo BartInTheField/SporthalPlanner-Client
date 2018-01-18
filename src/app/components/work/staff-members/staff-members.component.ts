@@ -1,9 +1,8 @@
-import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import { StaffMember } from '../../../models/staffmember.model';
 import {Subscription} from 'rxjs/Subscription';
 import {StaffMemberService} from '../../../services/staffmember.service';
-import {SportsFacilityService} from '../../../services/sportsfacility.service';
-import {AuthService} from '../../../services/auth.service';
+import {PlanningService} from '../../../services/planning.service';
 
 @Component({
   selector: 'app-staff-members',
@@ -20,11 +19,12 @@ export class StaffMembersComponent implements OnInit, OnDestroy {
   private addingPlanning: boolean = false;
   private addPlanningIsOpen: boolean = false;
   @Output() onMemberSelected = new EventEmitter<StaffMember>();
+  @Output() onMemberPlanningsShowing = new EventEmitter<boolean>();
+  private showingRelatedPlannings: boolean = false;
 
 
   constructor(private staffMemberService: StaffMemberService,
-              private facilityService: SportsFacilityService,
-              private authService: AuthService) { }
+              private planningService: PlanningService) { }
 
   ngOnInit(): void {
     this.staffMemberSubscription = this.staffMemberService.staffMemberSubject
@@ -63,17 +63,13 @@ export class StaffMembersComponent implements OnInit, OnDestroy {
     }
 
     this.onMemberSelected.emit(member);
-
-    // this.planningService.createPlanning(new Planning(
-    //   this.authService.getFacilityId(),
-    //   member.firstName,
-    //   member.lastName,
-    //   member.dateOfBirth
-    // ));
   }
 
   onViewPlanning(member: StaffMember) {
-
+    this.planningService.getPlanningFromStaffMember(member._id);
+    if (this.showingRelatedPlannings === false) {
+      this.showingRelatedPlannings = !this.showingRelatedPlannings;
+      this.onMemberPlanningsShowing.emit(this.showingRelatedPlannings);
+    }
   }
-
 }
