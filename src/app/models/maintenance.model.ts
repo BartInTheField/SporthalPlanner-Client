@@ -3,7 +3,7 @@ export class Maintenance {
   private id: string;
   private _Days: Date[];
   private _Subject: string;
-  private _Materials: string;
+  private _Materials: string[];
   private _Reason: string;
   private _SportsFacility: string;
 
@@ -32,11 +32,11 @@ export class Maintenance {
     this._Subject = value;
   }
 
-  get materials(): string {
+  get materials(): string[] {
     return this._Materials;
   }
 
-  set materials(value: string) {
+  set materials(value: string[]) {
     this._Materials = value;
   }
 

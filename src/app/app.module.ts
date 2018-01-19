@@ -82,7 +82,7 @@ import { UserWorkComponent } from './components/work/user-work/user-work.compone
     StaffMemberService,
     SportsFacilityService,
     PlanningService,
-    PlanningTogglerService
+    PlanningTogglerService,
     MaintenanceService
   ],
   bootstrap: [AppComponent]
