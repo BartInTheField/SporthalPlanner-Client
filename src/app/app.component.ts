@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { NavbarService } from './services/navbar.service';
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';

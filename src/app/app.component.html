@@ -5,6 +5,6 @@
   </div>
 </div>
 <app-bar></app-bar>
-<div [ngClass]="{'full' : !navBarIsShowing}"  class="main">
+<div [ngClass]="{'full' : !navBarIsShowing || seePlanning}"  class="main">
   <router-outlet></router-outlet>
 </div>
