@@ -1,3 +1,4 @@
+import { UserWorkComponent } from './components/work/user-work/user-work.component';
 import { WorkComponent } from './components/work/work.component';
 import { PlanComponent } from './components/plan/plan.component';
 import { HomeComponent } from './components/home/home.component';
@@ -19,6 +20,7 @@ const appRoutes: Routes = [
   { path: 'day', component: CalendarComponent, canActivate:[AuthGuardSelectedFacility]},
   { path: 'week', component: CalendarComponent, canActivate:[AuthGuardSelectedFacility]},
   { path: 'work', component: WorkComponent, canActivate:[AuthGuardSelectedFacility]},
+  { path: 'work/:user', component: UserWorkComponent},
   { path: 'maintenance', component: MaintenanceComponent, canActivate:[AuthGuardSelectedFacility]},
   { path: 'time', component: TimeComponent, canActivate:[AuthGuardSelectedFacility]},
   { path: 'login', component: LoginComponent},

@@ -8,7 +8,7 @@
       <div class="card-body">
         <div class="card-text">
           <p>
-            <strong>{{member.firstName + ' ' + member.lastName}}</strong><br />
+            <strong>{{member.firstName + ' ' + member.lastName + '  /  ' + member._id}}</strong><br />
             {{member.dateOfBirth |  date:'dd-MM-yyyy'}}
           </p>
           <button class="btn btn-danger" (click)="onDelete(member)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>

@@ -1,0 +1,22 @@
+<div class="wrapper">
+  <div *ngIf="plannings !== undefined">
+    <div class="card mb-3" *ngFor="let plan of plannings">
+      <div class="card-body">
+        <div class="card-text">
+          <div>
+            <p><strong>{{plan.staffMember.firstName + ' ' + plan.staffMember.lastName}} </strong></p>
+            <div class="row">
+              <div class="col col-md-10">
+                Datum: {{plan.day | date:'dd-MM-yyyy'}}<br/>
+                Van {{plan.startingTime}} tot {{plan.endingTime}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p *ngIf="plannings === undefined">
+    {{userId}} is niet geldig of heeft geen planning
+  </p>
+</div>

@@ -36,6 +36,7 @@ import { PlanningComponent } from './components/work/planning/planning.component
 import {PlanningTogglerService} from './services/planning-toggler.service';
 import { MaintenanceComponent } from './components/maintenance/maintenance.component';
 import {MaintenanceService} from "./services/maintenance.service";
+import { UserWorkComponent } from './components/work/user-work/user-work.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import {MaintenanceService} from "./services/maintenance.service";
     StaffMembersComponent,
     AddPlanningComponent,
     PlanningComponent,
-    MaintenanceComponent
+    MaintenanceComponent,
+    UserWorkComponent
   ],
   imports: [
     BrowserModule,
