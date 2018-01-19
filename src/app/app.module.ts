@@ -80,7 +80,7 @@ import {MaintenanceService} from "./services/maintenance.service";
     StaffMemberService,
     SportsFacilityService,
     PlanningService,
-    PlanningTogglerService
+    PlanningTogglerService,
     MaintenanceService
   ],
   bootstrap: [AppComponent]
